@@ -76,6 +76,23 @@
     z-index: -1;
 
 }
+.new-articles{
+
+}
+.new-articles__list{
+
+}
+.new-articles__item{
+    border-bottom: 1px solid #eeeeee;
+    padding: 1rem 0;
+}
+.new-articles__link{
+    font-size: 1.4rem;
+    transition: color 400ms ease;
+}
+.new-articles__link:hover{
+    color: #1e83f0;
+}
 /*Finish Sidebar Styles*/
 
 /*Start Blog Content*/
