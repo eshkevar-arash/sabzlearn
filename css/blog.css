@@ -96,5 +96,70 @@
 /*Finish Sidebar Styles*/
 
 /*Start Blog Content*/
+.blog-content__article{
+    padding: 2.4rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 5px 30px rgba(70, 72, 77, 0.08);
+}
+.blog-content__title{
+    font-size: 2.6rem;
+    font-family: var(--bold-font);
+    color: var(--dark-color);
+    border-bottom: 2px solid #f3f3f3;
+    padding-bottom: 1rem;
+    line-height: 1.8;
+}
+/*Start blog-content__header Styles - Final*/
+.blog-content__header {
+    display: flex;
+    align-items: center;
+    padding-top: 1rem;
+    padding-bottom: 0.6rem; /* جا برای scrollbar */
+    gap: 2rem;
+
+    overflow-x: auto; /* فعال کردن اسکرول افقی */
+    -webkit-overflow-scrolling: touch; /* scroll روان در موبایل */
+}
+
+.blog-content__header-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0; /* جلوگیری از کوچک شدن آیتم‌ها */
+}
+
+.blog-content__header-icon {
+    font-size: 1.7rem;
+    color: #c7c7c7;
+    flex-shrink: 0; /* آیکون کوچک نشه */
+}
+
+.blog-content__header-link,
+.blog-content__header-text {
+    font-size: 1.2rem;
+    color: #8f8f8f;
+    white-space: nowrap; /* جلوگیری از شکستن متن‌ها */
+}
+
+.blog-content__header-link {
+    transition: color 400ms ease;
+}
+
+.blog-content__header-link:hover {
+    color: #1e83f0;
+}
+
+/* Scroll bar کم‌ارتفاع و شیک */
+.blog-content__header::-webkit-scrollbar {
+    height: 4px; /* کم ارتفاع برای موبایل */
+}
+.blog-content__header::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,0.15);
+    border-radius: 2px;
+}
+.blog-content__header::-webkit-scrollbar-track {
+    background: transparent;
+}
+/*Finish blog-content__header Styles - Final*/
 
 /*Finish Blog Content*/

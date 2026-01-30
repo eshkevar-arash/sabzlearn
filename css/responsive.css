@@ -323,6 +323,9 @@
     .introduction-topic__item-left-time{
         font-size: 1.4rem;
     }
+    .blog-content__title{
+        font-size: 1.8rem !important;
+    }
 }
 @media screen and (max-width: 992px) {
     .main-header__menu{
@@ -365,6 +368,8 @@
     }
 }
 @media screen and (max-width: 1400px) {
-
+    .blog-content__title{
+        font-size: 2.2rem;
+    }
 }
 /*Finish Max Width*/
