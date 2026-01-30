@@ -48,5 +48,9 @@
     height: 1.6rem !important;
     background-color: var(--primary-color) !important;
 }
-
+.paragraph{
+    font-size: 1.5rem;
+    line-height: 3rem;
+    color: #7d7e7f;
+}
 /*Finish Helper Class*/

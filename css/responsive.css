@@ -297,6 +297,9 @@
         align-items: stretch;
         justify-content: center;
     }
+    .blog-content__read-link{
+        font-size: 1.3rem !important;
+    }
 }
 @media screen and (max-width: 768px) {
     .introduction .header-title::after{
@@ -325,6 +328,16 @@
     }
     .blog-content__title{
         font-size: 1.8rem !important;
+    }
+    .blog-content__scores-icon{
+        width: 1.6rem !important;
+        height: 1.6rem !important;
+    }
+    .blog-content__scores-text{
+        font-size: 1.4rem;
+    }
+    .blog-content__read-link{
+        font-size: 1.4rem;
     }
 }
 @media screen and (max-width: 992px) {
