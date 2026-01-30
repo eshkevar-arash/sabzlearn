@@ -1,0 +1,187 @@
+/*Start Main-Header Style*/
+.main-header{
+
+}
+.main-header__content{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 1.5rem;
+}
+.main-header__right{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.main-header__logo-link{
+    display: block;
+    width: 11rem;
+    height: 6.5rem;
+}
+.main-header__logo-image{
+    width: 100%;
+    height: 100%;
+}
+.main-header__menu{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.main-header__item{
+    position: relative;
+}
+.main-header__link{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 1rem;
+}
+.main-header__link-text{
+    font-size: 1.5rem;
+    color: #7f8187;
+    transition: color 400ms ease;
+}
+.main-header__angle-down{
+    color: #7f8187;
+    transition: all 400ms ease;
+}
+.main-header__item:hover .main-header__link-text, .main-header__item:hover .main-header__angle-down{
+    color: #1e83f0;
+}
+.main-header__item:hover .main-header__angle-down{
+    transform: rotate(180deg);
+}
+.main-header__dropDown-parent{
+    position: absolute;
+    right: 0;
+    top: 100%;
+    width: 24rem !important;
+    z-index: 1;
+    padding-top: 1rem;
+    min-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 400ms ease, transform 200ms ease;
+    border-radius: 0.5rem;
+    visibility: hidden;
+    transform: translateY(-8px);
+}
+.main-header__dropDown{
+    width: 100%;
+    background-color: var(--white-color);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.12);
+    padding: 1rem 0;
+    border-bottom: 3px solid var(--primary-color);
+}
+.main-header__item:hover .main-header__dropDown-parent{
+    overflow: visible;
+    min-height: auto;
+    opacity: 1;
+    pointer-events: visible;
+    visibility: visible;
+    transform: translateY(0);
+}
+.main-header__dropDown-item{
+    color: var(--dark-color);
+    width: 100%;
+}
+.main-header__dropDown-link{
+    transition: all 400ms ease;
+    display: block;
+    width: 100%;
+    padding-right: 1.5rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.5rem;
+    font-size: 1.4rem;
+    color: var(--dark-color);
+}
+.main-header__dropDown-item:first-child .main-header__dropDown-link{
+    padding-top: 0;
+}
+.main-header__dropDown-item:last-child .main-header__dropDown-link{
+    padding-bottom:0;
+}
+.main-header__dropDown-item:hover .main-header__dropDown-link{
+    color: #1e83f0;
+}
+.main-header__left{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.main-header__search-btn{
+    background-color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4.3rem;
+    height: 4.3rem;
+    border-radius: 0.5rem;
+    transition: background-color 400ms ease;
+}
+.main-header__search-icon{
+    color: var(--white-color);
+    font-size: 2rem;
+    font-weight: 100;
+    transition: color 400ms ease;
+}
+.main-header__search-btn:hover{
+    background-color: var(--white-color);
+    border: 2px solid var(--primary-color);
+}
+.main-header__search-btn:hover .main-header__search-icon{
+    color: var(--primary-color);
+}
+.main-header__cart-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4.3rem;
+    height: 4.3rem;
+    border-radius: .5rem;
+    background-color: #f0f2f7;
+    transition: background-color 400ms ease;
+}
+.main-header__cart-icon{
+    transition: color 400ms ease;
+    color: #1e83f0;
+    font-size: 1.8rem;
+
+}
+.main-header__cart-btn:hover{
+    background-color: #1e83f0;
+}
+.main-header__cart-btn:hover .main-header__cart-icon{
+    color: var(--white-color);
+}
+.main-header__profile-box{
+    display: flex;
+    align-items: center;
+    padding: 0 1.5rem;
+    border: 2px solid var(--primary-color);
+    justify-content: center;
+    transition: background-color 400ms ease;
+    height: 4.3rem;
+    border-radius: 0.5rem;
+    gap: 0.5rem;
+    background: var(--primary-color);
+}
+.main-header__profile-icon{
+    transition: color 400ms ease;
+    color: var(--white-color);
+}
+.main-header__profile-text{
+    transition: color 400ms ease;
+    color: var(--white-color);
+}
+.main-header__profile-box:hover{
+    background-color: var(--white-color);
+}
+.main-header__profile-box:hover .main-header__profile-text{
+    color: var(--primary-color);
+}
+.main-header__profile-box:hover .main-header__profile-icon{
+    color: var(--primary-color);
+}
+/*Finish Main-Header Style*/

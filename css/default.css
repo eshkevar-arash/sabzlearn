@@ -1,0 +1,28 @@
+/*Start Default Style*/
+html{
+    font-size: 10px; /*62.5%*/
+    box-sizing: border-box;
+}
+*,*::before,*::after{
+    box-sizing: inherit;
+}
+a{
+    text-decoration: none;
+    cursor: pointer;
+    color: var(--dark-color);
+}
+
+i{
+    user-select: none;
+}
+
+svg{
+    user-select: none;
+}
+body{
+    font-size: 1.6rem;
+    line-height: 1.6;
+    font-family: Var(--primary-font);
+
+}
+/*Finish Default Style*/

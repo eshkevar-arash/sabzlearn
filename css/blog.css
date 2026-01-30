@@ -1,0 +1,83 @@
+@import "./fonts.css";
+@import "./variables.css";
+@import "./top-bar.css";
+@import "./modile-menu.css";
+@import "./overlay.css";
+@import "./default.css";
+@import "./footer.css";
+/*@import "./courses-box.css";*/
+@import "./main-header.css";
+@import "./helper-class.css";
+@import "./breadcrumd.css";
+@import "./similar-courses.css";
+.blog-top{
+    margin: 6rem 0;
+}
+/*Start Sidebar Styles*/
+.sidebar-box{
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+    padding: 2.2rem;
+    box-shadow: 0 0 13px 1px rgba(70, 72, 77, 0.08);
+    border: 1px solid #f2f2f2;
+    overflow: hidden;
+}
+.slider-box__title{
+    position: relative;
+    margin-bottom: 1.5rem;
+    color: var(--dark-color);
+    font-family: var(--medium-font);
+    font-size: 1.8rem;
+}
+.sidebar__list-box{
+
+}
+.sidebar__list-box ul{
+
+}
+.sidebar__list-box ul li{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #eeeeee;
+    padding: 0.9rem 1.3rem 0.9rem 1rem;
+    transition: all 400ms ease;
+    gap: 0.5rem;
+}
+.sidebar__list-box ul li .fa-angle-left{
+    transition: color 400ms ease;
+    font-size: 1.4rem;
+    color: #909aa7;
+}
+.sidebar__list-box ul li a{
+    transition: color 400ms ease;
+    font-size: 1.3rem;
+}
+.sidebar__list-box ul li:hover{
+    padding-right: 2rem;
+    background-color: #f8f9fa;
+}
+.sidebar__list-box ul li:hover .fa-angle-left{
+    color: var(--primary-color);
+}
+.sidebar__list-box ul li:hover a{
+    color: #1e83f0;;
+}
+.slider-box__title::before{
+    content: "";
+    position: absolute;
+    width: 22px;
+    height: 39px;
+    background-color: var(--primary-color);
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 12px;
+    right: -27px;
+    top: -5px;
+    transform: skewX(-10deg);
+    z-index: -1;
+
+}
+/*Finish Sidebar Styles*/
+
+/*Start Blog Content*/
+
+/*Finish Blog Content*/

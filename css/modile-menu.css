@@ -1,0 +1,35 @@
+.mobile-menu{
+    display: none;
+}
+.mobile-menu__btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    overflow: hidden;
+    width: 3.6rem;
+    height: 3.6rem;
+    background-color: #f0f2f7;
+    outline: none;
+    cursor: pointer;
+}
+.mobile-menu__btn:focus{
+    outline: none;
+}
+.mobile-bar{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 25rem;
+    min-height: 100vh;
+    background: var(--dark-color);
+    z-index: 1000;
+    transform: translateX(25rem);
+    transition: transform 250ms ease;
+}
+.mobile-bar.mobile-bar--show{
+    transform: translateX(0);
+}
+.mobile-menu__btn.mobile-menu__btn--open{
+
+}

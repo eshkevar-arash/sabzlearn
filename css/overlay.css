@@ -1,0 +1,21 @@
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255,255,255,.3);
+    cursor: pointer;
+    backdrop-filter: blur(3px);
+    z-index: 999;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    pointer-events: none;
+    transition: opacity 250ms ease;
+}
+.overlay.overlay--show{
+    opacity: 1;
+    height: 100%;
+    overflow: visible;
+    pointer-events: visible;
+}
