@@ -1,8 +1,9 @@
 /*Start breadcrumb Styles*/
-.breadcrumb{
+.breadcrumb {
     margin-bottom: 2rem;
 }
-.breadcrumb__content{
+
+.breadcrumb__content {
     display: flex;
     align-items: center;
     justify-content: start;
@@ -10,8 +11,13 @@
     padding: 1.5rem 2rem;
     border-radius: 1rem;
     gap: 2rem;
+
+    /* اضافه برای اسکرول افقی موبایل */
+    overflow-x: auto; /* فعال کردن اسکرول افقی */
+    -webkit-overflow-scrolling: touch; /* smooth scroll در موبایل */
 }
-.breadcrumb__home-link{
+
+.breadcrumb__home-link {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -21,23 +27,31 @@
     background-color: var(--white-color);
     border-radius: 1rem;
     color: #7f8187;
+    flex-shrink: 0; /* از کوچک شدن جلوگیری می‌کنه */
 }
-.breadcrumb__home-icon{
+
+.breadcrumb__home-icon {
     font-size: 1.8rem;
 }
-.breadcrumb__home-link:hover{
+
+.breadcrumb__home-link:hover {
     color: #1e83f0;
 }
-.breadcrumb__list{
+
+.breadcrumb__list {
     display: flex;
     align-items: center;
     justify-content: start;
     gap: 1rem;
+    flex-wrap: nowrap; /* جلوگیری از شکستن لیست */
+    flex-shrink: 0; /* مانع کوچک شدن در موبایل */
 }
-.breadcrumb__item{
 
+.breadcrumb__item {
+    flex-shrink: 0; /* هر آیتم ثابت بمونه */
 }
-.breadcrumb__link{
+
+.breadcrumb__link {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -45,12 +59,27 @@
     transition: color 400ms ease;
     color: #7f8187;
     font-size: 1.5rem;
-    flex-wrap: nowrap;
+    white-space: nowrap; /* جلوگیری از شکستن متن */
 }
-.breadcrumb__angle-icon{
+
+.breadcrumb__angle-icon {
     font-size: 1.5rem;
 }
-.breadcrumb__link:hover{
+
+.breadcrumb__link:hover {
     color: #1e83f0;
 }
+
+/* Scroll bar زیبا و کوچک (اختیاری) */
+.breadcrumb__content::-webkit-scrollbar {
+    height: 6px;
+}
+.breadcrumb__content::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,0.2);
+    border-radius: 3px;
+}
+.breadcrumb__content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
 /*Finish breadcrumb Styles*/
