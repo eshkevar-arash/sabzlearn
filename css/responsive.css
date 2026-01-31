@@ -129,7 +129,10 @@
     .footer-box__title{
         font-size: 1.7rem;
     }
-
+    .blog-content__slider .swiper-pagination{
+        /*!hidden lg:!block !relative !mt-8*/
+        display: block !important;
+    }
 }
 @media screen and (min-width: 1200px) {
     .header-title{
