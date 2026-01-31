@@ -217,6 +217,32 @@
 .blog-content__read-link:hover{
     text-decoration: underline;
 }
+.blog-content__secondary-banner{
+    display: block;
+    width: 100%;
+    max-width: 60rem;
+    margin: 0 auto;
+    object-fit: cover;
+}
+.blog-content__section{
+    margin: 5rem 0;
+}
+.blog-content__section-title{
+    font-size: 2.4rem;
+    color: #008c25;
+    font-family: var(--bold-font);
+    line-height: 1.2;
+}
+.blog-content__section-text{
+    margin: 2rem 0;
+}
+.blog-content__section-image{
+    display: block;
+    width: 100%;
+    max-width: 40rem;
+    margin: 0 auto;
+    object-fit: cover;
+}
 /*Finish blog-content__header Styles - Final*/
 
 /*Finish Blog Content*/
