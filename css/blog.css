@@ -243,6 +243,28 @@
     margin: 0 auto;
     object-fit: cover;
 }
+.blog-content__social-media{
+    display: flex;
+    align-items: center;
+}
+.blog-content__social-media-text{
+    font-size: 1.5rem;
+    color: #7d7e7f;
+    font-family: var(--medium-font);
+}
+.blog-content__social-media-link{
+    display: block;
+    margin-right: 1rem;
+    color: #7b868a;
+    transition: color 400ms ease;
+}
+.blog-content__social-media-link:hover{
+    color: #1e83f0;;
+}
+.blog-content__social-media-icon{
+    display: block;
+    width: 100%;
+}
 /*Finish blog-content__header Styles - Final*/
 
 /*Finish Blog Content*/
