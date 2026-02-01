@@ -317,6 +317,47 @@
     background-color: var(--primary-color) !important;
 }
 /*Finish Blog Slider Styles*/
-/*Finish blog-content__header Styles - Final*/
+/*Start Suggestion Styles*/
+.suggestion-article{
+
+}
+.suggestion-article__box{
+    display: flex;
+}
+.suggestion-first-box{
+    justify-content: start;
+}
+.suggestion-two-box{
+    justify-content: end;
+}
+.suggestion-article__box-wrapper{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.suggestion-article__box-link-icon{
+    display: block;
+}
+.suggestion-article__box-icon{
+    display: block;
+    width: 100%;
+}
+.suggestion-article__box-title{
+    text-align: center;
+}
+.suggestion-article__older{
+
+}
+.suggestion-article__newest{
+    flex-direction: row-reverse;
+}
+.suggestion-article__older::before{
+
+}
+.suggestion-article__newest::before{
+
+}
+/*Start Suggestion Styles*/
+
 
 /*Finish Blog Content*/
