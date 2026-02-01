@@ -319,7 +319,10 @@
 /*Finish Blog Slider Styles*/
 /*Start Suggestion Styles*/
 .suggestion-article{
-
+    margin-bottom: 4rem;
+    padding: 3.5rem 2.5rem;
+    background-color: #f0f2f7;
+    border-radius: 0.5rem;
 }
 .suggestion-article__box{
     display: flex;
@@ -334,9 +337,16 @@
     display: flex;
     align-items: center;
     gap: 1rem;
+    position: relative;
 }
 .suggestion-article__box-link-icon{
     display: block;
+    width: 2rem;
+    transition: color 400ms ease;
+    color: #adb5bd;
+}
+.suggestion-article__box-link-icon:hover{
+    color: #1e83f0;
 }
 .suggestion-article__box-icon{
     display: block;
@@ -344,6 +354,11 @@
 }
 .suggestion-article__box-title{
     text-align: center;
+    font-size: 1.5rem;
+    transition: color 400ms ease;
+}
+.suggestion-article__box-title:hover{
+    color: #1e83f0;
 }
 .suggestion-article__older{
 
@@ -351,11 +366,21 @@
 .suggestion-article__newest{
     flex-direction: row-reverse;
 }
+.suggestion-article__older::before, .suggestion-article__newest::before{
+    position: absolute;
+    top: -2.5rem;
+    font-size: 1.5rem;
+    letter-spacing: -1px;
+    color: #adb5bd;
+}
 .suggestion-article__older::before{
-
+    content: "قدیمی تر";
+    left: 3rem;
+    transform: rotate(-180deg);
 }
 .suggestion-article__newest::before{
-
+    content: "جدیدتر";
+    right: 3rem;
 }
 /*Start Suggestion Styles*/
 
