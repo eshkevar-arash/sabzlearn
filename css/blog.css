@@ -356,6 +356,7 @@
     text-align: center;
     font-size: 1.5rem;
     transition: color 400ms ease;
+    color: var(--dark-color);
 }
 .suggestion-article__box-title:hover{
     color: #1e83f0;
@@ -381,6 +382,63 @@
 .suggestion-article__newest::before{
     content: "جدیدتر";
     right: 3rem;
+}
+.comment{
+    margin-bottom: 3rem;
+}
+.comment__title{
+    color: var(--dark-color);
+    font-size: 1.3rem;
+    font-family: var(--bold-font);
+    margin-bottom: 1.5rem;
+}
+.comment__header{
+    color: var(--dark-color);
+    font-size: 1.5rem;
+}
+.comment__header-name, .comment__header-logout{
+    transition: color 400ms ease;
+    font-family: var(--bold-font);
+    font-size: 1.4rem;
+}
+.comment__header-name{
+
+}
+.comment__header-logout{
+
+}
+.comment__header-name:hover, .comment__header-logout:hover{
+    color: #1e83f0;
+}
+.comment__main{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin: 1.5rem 0;
+}
+.comment__main-title{
+    font-size: 1.5rem;
+    color: #6c757d;
+    margin-bottom: 0.5rem;
+}
+.comment__main-textarea{
+    height: 18.5rem;
+    border: 1px solid #dcdcdc;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.07);
+}
+.comment__footer{
+
+}
+.comment__btn{
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    outline: none;
+    border: none;
+    font-size: 1.4rem;
+    font-family: var(--medium-font);
+    padding: 0.8rem 1.7rem;
+    border-radius: 0.5rem;
 }
 /*Start Suggestion Styles*/
 
