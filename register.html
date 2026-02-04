@@ -5,12 +5,12 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>login</title>
-  <link rel="stylesheet" href="./vendor/Bootstrap/bootstrap.rtl.min.css">
-  <link rel="stylesheet" href="./vendor/FontAwesome/all.min.css">
-  <link rel="stylesheet" href="./css/reset.css">
-  <link rel="stylesheet" href="./css/login.css">
-  <link rel="stylesheet" href="./css/responsive.css">
+    <title>register</title>
+    <link rel="stylesheet" href="./vendor/Bootstrap/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="./vendor/FontAwesome/all.min.css">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./css/responsive.css">
 </head>
 <body>
 <!--Start Header-->
@@ -178,50 +178,62 @@
 </header>
 <!--Finish Header-->
 <main class="main">
-<section class="login">
-    <div class="container">
-        <div class="login-wrapper">
-            <span class="login__title">ورود به حساب کاربری</span>
-            <span class="login__sub-title">خوشحالیم دوباره میبینیمت دوست عزیز :)</span>
-            <div class="login__new-member">
-                <span class="login__new-member-text">کاربر جدید هستید؟</span>
-                <a href="register.html" class="login__new-member-link">ثبت نام</a>
-            </div>
-            <form class="login-form" action="#">
-                <div class="login-form__row">
-                    <input type="text" class="login-form__row-input" placeholder="نام کاربری یا آدرس ایمیل">
-                    <i class="login-form__row-icon fa fa-user"></i>
+    <section class="login">
+        <div class="container">
+            <div class="login-wrapper">
+                <span class="login__title">ایجاد حساب کاربری جدید</span>
+                <span class="login__sub-title">به خونواده سبزلرن خوش اومدی</span>
+                <div class="login__new-member">
+                    <span class="login__new-member-text">قبلا حساب کاربری دارید؟</span>
+                    <a href="login.html" class="login__new-member-link">لاگین</a>
                 </div>
-                <div class="login-form__row">
-                    <input type="text" class="login-form__row-input" placeholder="رمز عبور">
-                    <i class="login-form__row-icon fa fa-lock-open"></i>
-                </div>
-                <buttn type="submit" class="login-form__btn">
-                    <i class="fas fa-sign-out-alt login-form__btn-icon" ></i>
-                    ورود
-                </buttn>
-                <div class="login-form__password-setting">
-                    <div class="login-form__remember">
-                        <input id="login-form__remember-input" type="checkbox">
-                        <label class="login-form__remember-label" for="login-form__remember-input">
-                            <i class="fa fa-check login-form__remember-check"></i>
-                        </label>
-                        <span class="login-form__remember-text"> مرا به خاطر داشته باش </span>
+                <form class="login-form" action="#">
+                    <div class="login-form__row">
+                        <input type="text" class="login-form__row-input" placeholder="نام و نام خانوادگی">
+                        <i class="login-form__row-icon fa fa-user"></i>
                     </div>
-                    <a href="#" class="login-form__forget-link">رمز عبور را فراموش کرده اید؟</a>
+                    <div class="login-form__row">
+                        <input type="text" class="login-form__row-input" placeholder="نام کاربری">
+                        <i class="login-form__row-icon fa fa-user"></i>
+                    </div>
+                    <div class="login-form__row">
+                        <input type="text" class="login-form__row-input" placeholder="آدرس ایمیل">
+                        <i class="login-form__row-icon fa fa-user"></i>
+                    </div>
+                    <div class="login-form__row">
+                        <input type="text" class="login-form__row-input" placeholder="شماره تماس">
+                        <i class="login-form__row-icon fa fa-user"></i>
+                    </div>
+                    <div class="login-form__row">
+                        <input type="text" class="login-form__row-input" placeholder="رمز عبور">
+                        <i class="login-form__row-icon fa fa-lock-open"></i>
+                    </div>
+                    <buttn type="submit" class="login-form__btn">
+                        <i class="fas fa-sign-out-alt login-form__btn-icon" ></i>
+                        ثبت نام
+                    </buttn>
+                    <div class="login-form__password-setting">
+                        <div class="login-form__remember">
+                            <input id="login-form__remember-input" type="checkbox">
+                            <label class="login-form__remember-label" for="login-form__remember-input">
+                                <i class="fa fa-check login-form__remember-check"></i>
+                            </label>
+                            <span class="login-form__remember-text"> مرا به خاطر داشته باش </span>
+                        </div>
+                        <!--<a href="#" class="login-form__forget-link">رمز عبور را فراموش کرده اید؟</a>-->
+                    </div>
+                </form>
+                <div class="login__dec">
+                    <p class="login__dec-title">سلام کاربر محترم:</p>
+                    <ul class="login__dec-list">
+                        <li class="login__dec-item">لطفا از مرورگر های مطمئن و بروز مانند گوگل کروم و فایرفاکس استفاده کنید. </li>
+                        <li class="login__dec-item">ما هرگز اطلاعات محرمانه شمارا از طریق ایمیل درخواست نمیکنیم. </li>
+                        <li class="login__dec-item">لطفا کلمه عبور خود را در فواصل زمانی کوتاه تغییر دهید.</li>
+                    </ul>
                 </div>
-            </form>
-            <div class="login__dec">
-                <p class="login__dec-title">سلام کاربر محترم:</p>
-                <ul class="login__dec-list">
-                    <li class="login__dec-item">لطفا از مرورگر های مطمئن و بروز مانند گوگل کروم و فایرفاکس استفاده کنید. </li>
-                    <li class="login__dec-item">ما هرگز اطلاعات محرمانه شمارا از طریق ایمیل درخواست نمیکنیم. </li>
-                    <li class="login__dec-item">لطفا کلمه عبور خود را در فواصل زمانی کوتاه تغییر دهید.</li>
-                </ul>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 </main>
 
 
@@ -232,6 +244,6 @@
 <script src="vendor/Swiper-Slider/swiper-bundle.min.js"></script>
 <script src="./js/swiper.js"></script>
 <script src="./js/app.js"></script>
-<script src="./js/blog.js"></script>
+<script src="./js/register.js"></script>
 </body>
 </html>
