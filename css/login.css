@@ -11,7 +11,30 @@
 /*@import "./breadcrumd.css";*/
 /*@import "./similar-courses.css";*/
 .login{
-
+    position: relative;
+    overflow: hidden;
+}
+.login::before{
+    content: "";
+    position: absolute;
+    top: -5rem;
+    width: 150%;
+    height: 380px;
+    background-color: #2bce56;
+    z-index: -1;
+    transform: rotate(-4deg);
+    left: -20rem;
+}
+.login::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 150%;
+    height: 380px;
+    background-color: rgba(43, 206, 86, 0.6);
+    z-index: -99;
+    transform: rotate(-4deg);
+    left: -20rem;
 }
 .login-wrapper{
     background-color: var(--white-color);
