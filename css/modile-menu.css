@@ -20,11 +20,11 @@
     position: fixed;
     top: 0;
     right: 0;
-    width: 25rem;
+    width: 25.6rem;
     min-height: 100vh;
-    background: var(--dark-color);
+    background: var(--white-color);
     z-index: 1000;
-    transform: translateX(25rem);
+    transform: translateX(25.6rem);
     transition: transform 250ms ease;
 }
 .mobile-bar.mobile-bar--show{
@@ -32,4 +32,88 @@
 }
 .mobile-menu__btn.mobile-menu__btn--open{
 
+}
+.mobile-bar__top{
+    margin-bottom: 2rem;
+    padding: 14px 1.6rem;
+    background-color: #f3f4f6;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.mobile-bar__info{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.mobile-bar__info-link{
+    display: block;
+    width: 5.6rem;
+    height: 5.6rem;
+    overflow: hidden;
+    border-radius: 50%;
+}
+.mobile-bar__info-link-image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.mobile-bar__info-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.mobile-bar__info-username{
+    font-size: 1.5rem;
+    color: var(--dark-color);
+    font-family: Var(--medium-font);
+}
+.mobile-bar__info-date{
+    font-size: 1.2rem;
+    color: #7f8187;
+}
+.mobile-bar__info-link-icon{
+    display: block;
+}
+.mobile-bar__info-icon{
+    color: var(--dark-color);
+    display: block;
+    font-size: 1.4rem;
+}
+.mobile-bar-content{
+    padding: 0 1.5rem;
+}
+.mobile-bar__shortCuts{
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #e5e7eb;
+}
+.mobile-bar__shortCuts-title{
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    font-family: var(--medium-font);
+    margin-bottom: 1rem;
+}
+.mobile-bar__shortCuts-list{
+
+}
+.mobile-bar__shortCuts-item{
+    margin-bottom: 4px;
+}
+.mobile-bar__shortCuts-item:last-child{
+    margin-bottom: 0;
+}
+.mobile-bar__shortCuts-link{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 0;
+}
+.mobile-bar__shortCuts-link-title{
+    font-size: 1.4rem;
+}
+.mobile-bar__shortCuts-link-icon{
+    font-size: 1.4rem;
+    color: var(--dark-color);
 }
