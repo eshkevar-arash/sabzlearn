@@ -110,7 +110,6 @@
     align-items: center;
     justify-content: space-between;
     padding: 4px 0;
-    line-height: 1.5;
 }
 .mobile-bar__shortCuts-link-title{
     font-size: 1.4rem;
@@ -127,11 +126,12 @@
 }
 .mobile-category__menu-item{
     width: 100%;
+    padding: 4px 0;
+}
+.mobile-category__menu-item-header{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    line-height: 1.5;
-    padding: 4px 0;
 }
 .mobile-category__menu-link{
     font-size: 1.4rem;
@@ -140,6 +140,27 @@
     font-size: 1.4rem;
     color: var(--dark-color);
     display: block;
+    pointer-events: visible;
+    cursor: pointer;
+}
+.mobile-category__sub-menu{
+    width: 100%;
+    padding: 1rem 1.2rem;
+    margin-top: 1rem;
+    background-color: rgb(245 245 245);
+    display: none;
+}
+.mobile-category__sub-menu-item{
+    width: 100%;
+    border-radius: 0.5rem;
+
+}
+.mobile-category__sub-menu-link{
+    font-size: 1.2rem;
+    transition: color 400ms ease;
+}
+.mobile-category__sub-menu-link:hover{
+    color: var(--primary-color);
 }
 
 
@@ -153,5 +174,8 @@
 .mobile-category__menu-item--open .mobile-category__menu-icon{
     color: var(--primary-color);
     transform: rotate(-90deg);
+}
+.mobile-category__menu-item--open .mobile-category__sub-menu{
+    display: block;
 }
 /*Finish Mobile Category Styles*/
