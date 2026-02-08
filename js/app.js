@@ -1,3 +1,4 @@
+/*
 const mobileMenuBtn = document.querySelector('.mobile-menu__btn')
 const mobileBar = document.querySelector('.mobile-bar')
 const overlay = document.querySelector('.overlay')
@@ -10,7 +11,7 @@ overlay.addEventListener('click', () => {
     overlay.classList.remove('overlay--show')
 })
 
-/*Start Mobile Category Menu*/
+/!*Start Mobile Category Menu*!/
 const mobileCategoryMenu = document.querySelector('.mobile-category__menu')
 const mobileCategoryMenuItems = mobileCategoryMenu.querySelectorAll('.mobile-category__menu-item')
 
@@ -26,4 +27,5 @@ mobileCategoryMenu.addEventListener('click', event => {
         targetLi.classList.toggle('mobile-category__menu-item--open')
     }
 })
-/*Finish Mobile Category Menu*/
+/!*Finish Mobile Category Menu*!/*/
+console.log('ok')
