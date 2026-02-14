@@ -27,3 +27,4 @@ mobileCategoryMenu.addEventListener('click', event => {
     }
 })
 /*Finish Mobile Category Menu*/
+const baseUrl = "http://localhost:4000/v1/"
