@@ -1,3 +1,4 @@
+const baseUrl = "http://localhost:4000/v1/"
 const Toast = Swal.mixin({
     showClass: {
         popup: `
@@ -52,4 +53,10 @@ mobileCategoryMenu.addEventListener('click', event => {
     }
 })
 /*Finish Mobile Category Menu*/
-const baseUrl = "http://localhost:4000/v1/"
+
+/*Start Retry-Button For Reload Site*/
+const retryBtn = document.querySelector('.retryBtn')
+retryBtn.addEventListener('click', () => {
+    window.location.reload()
+})
+/*Finish Retry-Button For Reload Site*/
