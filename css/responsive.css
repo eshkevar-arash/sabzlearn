@@ -211,6 +211,9 @@
         padding: 0.4rem 0.8rem !important;
         font-size: 1.2rem !important;
     }
+    .errorBox h2{
+        font-size: 1.6rem;
+    }
 }
 
 @media screen and (max-width: 460px) {

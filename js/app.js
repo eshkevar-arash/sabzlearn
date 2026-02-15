@@ -56,7 +56,9 @@ mobileCategoryMenu.addEventListener('click', event => {
 
 /*Start Retry-Button For Reload Site*/
 const retryBtn = document.querySelector('.retryBtn')
+const errorOverlay = document.querySelector('.errorOverlay')
 retryBtn.addEventListener('click', () => {
+    errorOverlay.classList.remove('errorOverlay--show')
     window.location.reload()
 })
 /*Finish Retry-Button For Reload Site*/

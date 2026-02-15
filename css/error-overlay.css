@@ -23,7 +23,7 @@
 
 .errorBox h2 {
     margin-bottom: 15px;
-    font-size: 20px;
+    font-size: 1.8rem;
     color: #333;
     font-family: var(--medium-font);
 }
