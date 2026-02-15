@@ -1,0 +1,70 @@
+.errorOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(6px);
+    /*display: flex;*/
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+    display: none;
+}
+
+.errorBox {
+    background: #ffffff;
+    padding: 40px 30px;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    animation: popUp 0.3s ease;
+}
+
+.errorBox h2 {
+    margin-bottom: 15px;
+    font-size: 20px;
+    color: #333;
+    font-family: var(--medium-font);
+}
+
+.errorBox p {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 25px;
+    font-family: var(--medium-font);
+}
+
+.retryBtn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #4f46e5, #6366f1);
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.retryBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(99, 102, 241, 0.4);
+}
+
+.retryBtn:active {
+    transform: scale(0.97);
+}
+
+@keyframes popUp {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+.errorOverlay.errorOverlay--show{
+    display: flex;
+}
