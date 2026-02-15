@@ -1,0 +1,44 @@
+/* Popup */
+.my-swal-popup {
+    border-radius: 18px;
+    padding: 28px;
+    font-family: inherit;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+/* Title */
+.my-swal-title {
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    font-weight: 600;
+    line-height: 1.4;
+    color: #2bce56; /* رنگ اصلی سایت */
+}
+
+/* Confirm Button */
+.my-swal-confirm {
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
+    padding: 10px 26px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #2bce56, #28b44e);
+    color: #fff;
+    border: none;
+    transition: 0.3s ease;
+    font-family: var(--medium-font);
+}
+
+.my-swal-confirm:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(43, 206, 86, 0.35);
+}
+
+.my-swal-confirm:active {
+    transform: scale(0.97);
+}
+
+
+
+.my-toast .swal2-title {
+    font-size: 1.4rem;
+    font-family: var(--medium-font) ;
+    color: var(--primary-color);
+}

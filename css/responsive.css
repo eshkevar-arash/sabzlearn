@@ -316,6 +316,9 @@
     .blog-content__read-link{
         font-size: 1.3rem !important;
     }
+    .my-toast .swal2-title {
+        font-size: 1.2rem;
+    }
 }
 @media screen and (max-width: 768px) {
     .introduction .header-title::after{

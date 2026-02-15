@@ -1,15 +1,27 @@
-function showErrorMessage(msg){
-    Swal.fire({
-        title: msg,
-        icon: "error"
+function showErrorMessage(message) {
+    return Swal.fire({
+        icon: 'error',
+        title: message,
+        confirmButtonText: 'متوجه شدم',
+        buttonsStyling: false,
+        customClass: {
+            popup: 'my-swal-popup',
+            title: 'my-swal-title',
+            confirmButton: 'my-swal-confirm'
+        }
     })
 }
-function toastMessage(msg){
-    Toast.fire({
+function toastMessage(msg) {
+    return Toast.fire({
         title: msg,
         icon: 'success',
+        customClass: {
+            popup: 'my-toast',
+            icon: 'my-toast-icon',
+            container: 'my-toast-container'
+        },
         didClose: () => {
-            /*console.log('✅ Toast بسته شد');*/
+            /* console.log('✅ Toast بسته شد'); */
         }
     });
 }
