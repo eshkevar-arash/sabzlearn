@@ -1,4 +1,5 @@
-const baseUrl = "http://localhost:4000/v1/"
+const baseUrl = "http://localhost:4000/v1"
+let users
 const Toast = Swal.mixin({
     showClass: {
         popup: `
