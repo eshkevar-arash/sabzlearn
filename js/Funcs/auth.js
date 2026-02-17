@@ -56,10 +56,14 @@ function isValidFullName(name) {
     const nameRegex = /^[A-Za-z\u0600-\u06FF]{2,}([ -][A-Za-z\u0600-\u06FF]+)*$/;
     return nameRegex.test(name.trim());
 }
+function errorOverlayShow(elem){
+    elem.classList.add('errorOverlay--show')
+}
 export {
     showErrorMessage,
     toastMessage,
     resetRememberInput,
     clearInputs,
-    isValidPhoneNumber,isValidUsername,isValidEmail,isValidPassword,isValidFullName
+    isValidPhoneNumber,isValidUsername,isValidEmail,isValidPassword,isValidFullName,
+    errorOverlayShow,
 }

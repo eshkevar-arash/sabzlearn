@@ -3,7 +3,8 @@ import {
     toastMessage,
     resetRememberInput,
     clearInputs,
-    isValidPhoneNumber,isValidUsername,isValidEmail,isValidPassword,isValidFullName
+    isValidPhoneNumber,isValidUsername,isValidEmail,isValidPassword,isValidFullName,
+    errorOverlayShow
 }
 from "./Funcs/auth.js";
 /*========================================================*/
