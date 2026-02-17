@@ -8,6 +8,7 @@
     <title>login</title>
   <link rel="stylesheet" href="./vendor/Bootstrap/bootstrap.rtl.min.css">
   <link rel="stylesheet" href="./vendor/FontAwesome/all.min.css">
+  <link rel="stylesheet" href="./vendor/SweetAlert2/animate.min.css">
   <link rel="stylesheet" href="./css/reset.css">
   <link rel="stylesheet" href="./css/login.css">
   <link rel="stylesheet" href="./css/responsive.css">
@@ -348,10 +349,17 @@
 
 
 <div class="overlay"></div>
-
+<div class="errorOverlay">
+    <div class="errorBox">
+        <h2>دسترسی به سایت با مشکل مواجه شده است</h2>
+        <p>لطفاً اتصال اینترنت خود را بررسی کرده و دوباره تلاش کنید.</p>
+        <button class="retryBtn">تلاش مجدد</button>
+    </div>
+</div>
 <script src="vendor/Bootstrap/bootstrap.bundle.min.js"></script>
 <script src="vendor/FontAwesome/all.min.js"></script>
 <script src="vendor/Swiper-Slider/swiper-bundle.min.js"></script>
+<script src="vendor/SweetAlert2/sweetalert2.js"></script>
 <script src="./js/swiper.js"></script>
 <script src="./js/app.js"></script>
 <script src="./js/blog.js"></script>

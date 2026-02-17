@@ -5,7 +5,7 @@ import {
     clearInputs,
     isValidPhoneNumber,isValidUsername,isValidEmail,isValidPassword,isValidFullName
 }
-from "./Module/data.js";
+from "./Funcs/auth.js";
 /*========================================================*/
 const nameInput = document.querySelector('.name')
 const usernameInput = document.querySelector('.username')
