@@ -1,15 +1,15 @@
-@import "./fonts.css";
+@import "fonts/fonts.css";
 @import "./variables.css";
-@import "./top-bar.css";
-@import "./modile-menu.css";
-@import "./overlay.css";
-@import "./default.css";
+@import "component/top-bar.css";
+@import "component/modile-menu.css";
+@import "component/overlay.css";
+@import "component/default.css";
 /*@import "./footer.css";*/
 /*@import "./courses-box.css";*/
-@import "./main-header.css";
-@import "./helper-class.css";
-@import "./error-overlay.css";
-@import "./sweet-alert.css";
+@import "component/main-header.css";
+@import "helper-class.css";
+@import "component/error-overlay.css";
+@import "component/sweet-alert.css";
 /*@import "./breadcrumd.css";*/
 /*@import "./similar-courses.css";*/
 .login{
