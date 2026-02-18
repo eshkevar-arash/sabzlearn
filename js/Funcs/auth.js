@@ -1,3 +1,29 @@
+const Toast = Swal.mixin({
+    showClass: {
+        popup: `
+                      animate__animated
+                      animate__fadeInDown
+                      animate__faster
+                    `
+    },
+    hideClass: {
+        popup: `
+                      animate__animated
+                      animate__fadeOutRight
+                      animate__faster
+                    `
+    },
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+    }
+});
+
 function showErrorMessage(message) {
     return Swal.fire({
         icon: 'error',
@@ -12,7 +38,7 @@ function showErrorMessage(message) {
     })
 }
 function toastMessage(msg) {
-    return Toast.fire({
+    Toast.fire({
         title: msg,
         icon: 'success',
         customClass: {
@@ -59,11 +85,55 @@ function isValidFullName(name) {
 function errorOverlayShow(elem){
     elem.classList.add('errorOverlay--show')
 }
+async function registerNewUser(user) {
+    try {
+        const res = await fetch(`${baseUrl}/auth/register`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+
+        const data = await res.json().catch(() => null)
+
+        if (!res.ok) {
+            switch (res.status) {
+                case 400:
+                    throw new Error('اطلاعات ارسال‌شده معتبر نیست.')
+                case 401:
+                    throw new Error('شما مجوز انجام این عملیات را ندارید.')
+                case 403:
+                    throw new Error('دسترسی به این بخش امکان‌پذیر نیست.')
+                case 404:
+                    throw new Error('سرویس ثبت‌نام یافت نشد.')
+                case 409:
+                    throw new Error('ایمیل یا نام کاربری قبلاً ثبت شده است.')
+                case 422:
+                    throw new Error(data?.message || 'اطلاعات وارد شده صحیح نیست.')
+                case 500:
+                    throw new Error('خطای داخلی سرور. لطفاً بعداً دوباره تلاش کنید.')
+                default:
+                    throw new Error(data?.message || 'خطایی غیرمنتظره رخ داد.')
+            }
+        }
+
+        return data
+
+    } catch (error) {
+        if (error.name === 'TypeError') {
+            throw new Error('ارتباط با سرور برقرار نشد. اتصال اینترنت خود را بررسی کنید.')
+        }
+
+        throw error
+    }
+}
 export {
+    Toast,
     showErrorMessage,
     toastMessage,
     resetRememberInput,
     clearInputs,
     isValidPhoneNumber,isValidUsername,isValidEmail,isValidPassword,isValidFullName,
-    errorOverlayShow,
+    errorOverlayShow,registerNewUser,
 }

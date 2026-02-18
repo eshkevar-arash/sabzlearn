@@ -1,10 +1,12 @@
 import {
+    Toast,
     showErrorMessage,
     toastMessage,
     resetRememberInput,
     clearInputs,
     isValidPhoneNumber,isValidUsername,isValidEmail,isValidPassword,isValidFullName,
-    errorOverlayShow
+    errorOverlayShow,
+    registerNewUser,
 }
 from "./Funcs/auth.js";
 /*========================================================*/
@@ -51,7 +53,18 @@ async function registerNewUserHandler(){
             const data = await registerNewUser(newUser)
             console.log(data.user)
             console.log(data.accessToken)
-            toastMessage('ثبت نام شما با موفقیت انجام شد')
+            Toast.fire({
+                title: 'ثبت نام شما با موفقیت انجام شد',
+                icon: 'success',
+                customClass: {
+                    popup: 'my-toast',
+                    icon: 'my-toast-icon',
+                    container: 'my-toast-container'
+                },
+                didClose: () => {
+                    window.location.href = 'index.html'
+                }
+            });
         }catch (err){
             showErrorMessage(err.message)
         }finally {
@@ -64,66 +77,7 @@ registerFormBtn.addEventListener('click', async event => {
     await registerNewUserHandler()
 })
 
-/*async function registerNewUser(user){
-    const res = await fetch(`${baseUrl}/auth/register`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(user)
-    })
-    if (res.status === 409){
-        throw new Error('ایمیل یا نام کاربری قبلا وارد شده است')
-    }
-    if (res.status === 404){
-        throw new Error('دسترسی به سرور با مشکل مواجه شد'+ "..." + res.status)
-    }
-    const data = await res.json()
-    return data
-}*/
-async function registerNewUser(user) {
-    try {
-        const res = await fetch(`${baseUrl}/auth/register`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(user)
-        })
 
-        const data = await res.json().catch(() => null)
-
-        if (!res.ok) {
-            switch (res.status) {
-                case 400:
-                    throw new Error('اطلاعات ارسال‌شده معتبر نیست.')
-                case 401:
-                    throw new Error('شما مجوز انجام این عملیات را ندارید.')
-                case 403:
-                    throw new Error('دسترسی به این بخش امکان‌پذیر نیست.')
-                case 404:
-                    throw new Error('سرویس ثبت‌نام یافت نشد.')
-                case 409:
-                    throw new Error('ایمیل یا نام کاربری قبلاً ثبت شده است.')
-                case 422:
-                    throw new Error(data?.message || 'اطلاعات وارد شده صحیح نیست.')
-                case 500:
-                    throw new Error('خطای داخلی سرور. لطفاً بعداً دوباره تلاش کنید.')
-                default:
-                    throw new Error(data?.message || 'خطایی غیرمنتظره رخ داد.')
-            }
-        }
-
-        return data
-
-    } catch (error) {
-        if (error.name === 'TypeError') {
-            throw new Error('ارتباط با سرور برقرار نشد. اتصال اینترنت خود را بررسی کنید.')
-        }
-
-        throw error
-    }
-}
 
 document.addEventListener('DOMContentLoaded', () => {
     resetRememberInput(loginFormRememberInputs)
