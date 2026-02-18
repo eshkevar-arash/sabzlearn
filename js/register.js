@@ -16,7 +16,7 @@ const passwordInput = document.querySelector('.password')
 const confirmPasswordInput = document.querySelector('.confirmPassword')
 const registerFormBtn = document.querySelector('#register-form-Btn')
 const loginFormRememberInputs = document.querySelector('#login-form__remember-input')
-function registerNewUserHandler(){
+async function registerNewUserHandler(){
     const name = nameInput.value.trim()
     const username = usernameInput.value.trim()
     const email = emailInput.value.trim()
@@ -38,31 +38,52 @@ function registerNewUserHandler(){
     } else if (password !== confirmPassword) {
         showErrorMessage('پسورد و تکرار آن با هم مطابقت ندارند.');
     }else {
-        console.log('ok')
+        const newUser = {
+            name,
+            username,
+            email,
+            phone,
+            password,
+            confirmPassword
+        }
+        registerFormBtn.textContent = 'در حال ارسال...'
+        try {
+            const data = await registerNewUser(newUser)
+            console.log(data.user)
+            console.log(data.accessToken)
+            toastMessage('ثبت نام شما با موفقیت انجام شد')
+        }catch (err){
+            showErrorMessage(err.message)
+        }finally {
+            registerFormBtn.textContent = 'ثبت نام'
+        }
     }
 }
 registerFormBtn.addEventListener('click', async event => {
     event.preventDefault()
-    registerNewUserHandler()
+    await registerNewUserHandler()
 })
 
-
-
-
-
-async function getAllUsers() {
-    const res = await fetch(`${baseUrl}/users`)
-
-    console.log('status:', res.status)
-
-    if (!res.ok) {
-        throw new Error(`خطا از سرور - status: ${res.status}`)
+async function registerNewUser(user){
+    const res = await fetch(`${baseUrl}/auth/register`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(user)
+    })
+    if (res.status === 409){
+        throw new Error('ایمیل یا نام کاربری قبلا وارد شده است')
     }
-
+    if (res.status === 404){
+        throw new Error('دسترسی به سرور با مشکل مواجه شد'+ "..." + res.status)
+    }
     const data = await res.json()
     return data
 }
+
+
 document.addEventListener('DOMContentLoaded', () => {
-    /*resetRememberInput(loginFormRememberInputs)
-    clearInputs(nameInput,usernameInput,emailInput,phoneInput,passwordInput,confirmPasswordInput)*/
+    resetRememberInput(loginFormRememberInputs)
+    clearInputs(nameInput,usernameInput,emailInput,phoneInput,passwordInput,confirmPasswordInput)
 })
