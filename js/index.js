@@ -8,7 +8,7 @@ import {
     errorOverlayShow,
     registerNewUser,
     CookieManager,
-    hideLoadingOverlay,showErrorOverlay,hideErrorOverlay
+    hideLoadingOverlay,showErrorOverlay,hideErrorOverlay,getMe
 }
     from "./Funcs/auth.js";
 
@@ -32,25 +32,27 @@ const minutesCourse = 31_320
 makeCounter(userCountElem, userCount)
 makeCounter(numbersCourseElem, numbersCourse)
 makeCounter(minutesCourseElem, minutesCourse)
+
 async function initApp(){
     const token = CookieManager.get('token')
     console.log(token)
     try{
-
+        [user] = await Promise.all([
+            getMe(token)
+        ])
+        if (user){
+            console.log(user)
+        }else {
+            console.log('no token')
+        }
     }
     catch (err){
-
+        showErrorOverlay(err.message)
     }
     finally {
-
+        hideLoadingOverlay(loadingOverlay)
     }
 }
 document.addEventListener('DOMContentLoaded', async () =>{
-    /*console.log(loadingOverlay)
-    console.log('ok')
-    setTimeout(() => {
-        hideLoadingOverlay(loadingOverlay)
-        showErrorOverlay(errorOverlay)
-    },3000)*/
     await initApp()
 })

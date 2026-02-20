@@ -82,8 +82,9 @@ const CookieManager = {
 function hideLoadingOverlay(elem){
     elem.classList.add('hidden')
 }
-function showErrorOverlay(elem){
-    elem.classList.add('errorOverlay--show')
+function showErrorOverlay(msg){
+    errorOverlay.querySelector('h2').textContent = msg
+    errorOverlay.classList.add('errorOverlay--show')
 }
 function hideErrorOverlay(elem){
     elem.classList.remove('errorOverlay--show')
@@ -192,6 +193,31 @@ async function registerNewUser(user) {
         throw error
     }
 }
+async function getMe(token){
+    if (!token){
+        return false
+    }
+
+    try {
+        const res = await fetch(`${baseUrl}/auth/me`,{
+            method: "GET",
+            headers: {
+                "Authorization": `Bearer ${token}`
+            },
+        })
+
+        if (!res.ok){
+            throw new Error('خطای سرور')
+        }
+
+        const data = await res.json()
+        return data
+
+    } catch (err){
+        // اینجا network error هم گرفته میشه
+        throw new Error('ارتباط با سرور برقرار نشد.')
+    }
+}
 export {
     Toast,
     showErrorMessage,
@@ -200,5 +226,5 @@ export {
     clearInputs,
     isValidPhoneNumber,isValidUsername,isValidEmail,isValidPassword,isValidFullName,
     errorOverlayShow,registerNewUser,CookieManager,
-    hideLoadingOverlay,showErrorOverlay,hideErrorOverlay
+    hideLoadingOverlay,showErrorOverlay,hideErrorOverlay,getMe,
 }

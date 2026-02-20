@@ -1,5 +1,6 @@
 const baseUrl = "http://localhost:4000/v1"
 let users
+let user
 /*let token*/
 const loadingOverlay = document.querySelector('#loading-overlay')
 const mobileMenuBtn = document.querySelector('.mobile-menu__btn')
