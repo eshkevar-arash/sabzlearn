@@ -57,7 +57,7 @@ async function registerNewUserHandler(){
             if (rememberInputs.checked){
                 CookieManager.set('token', data.accessToken, 2)
             }else {
-                CookieManager.set('token', data.accessToken, 0)
+                CookieManager.set('token', data.accessToken)
             }
             Toast.fire({
                 title: 'ثبت نام شما با موفقیت انجام شد',
@@ -87,6 +87,7 @@ registerFormBtn.addEventListener('click', async event => {
 
 document.addEventListener('DOMContentLoaded', () => {
     /*console.log(rememberInputs.checked)*/
+    console.log(CookieManager.get('token'))
     resetRememberInput(rememberInputs)
     clearInputs(nameInput,usernameInput,emailInput,phoneInput,passwordInput,confirmPasswordInput)
 })

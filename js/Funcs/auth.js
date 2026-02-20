@@ -23,6 +23,34 @@ const Toast = Swal.mixin({
         toast.onmouseleave = Swal.resumeTimer;
     }
 });
+/*const CookieManager = {
+    // ساختن یا آپدیت کوکی
+    set: function(name, value, days) {
+        let expires = "";
+        if (days && days > 0) {  // فقط وقتی >0 باشه expires ست میشه
+            const date = new Date();
+            date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = `${name}=${value}; path=/${expires}`;
+    },
+
+    // خوندن کوکی
+    get: function(name) {
+        const nameEQ = name + "=";
+        const ca = document.cookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i].trim();
+            if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length);
+        }
+        return null;
+    },
+
+    // حذف کوکی
+    delete: function(name) {
+        document.cookie = `${name}=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT`;
+    }
+}*/
 const CookieManager = {
     // ساختن یا آپدیت کوکی
     set: function(name, value, days) {
