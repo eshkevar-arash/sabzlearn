@@ -7,7 +7,8 @@ import {
     isValidPhoneNumber,isValidUsername,isValidEmail,isValidPassword,isValidFullName,
     errorOverlayShow,
     registerNewUser,
-    CookieManager
+    CookieManager,
+    hideLoadingOverlay,showErrorOverlay,hideErrorOverlay
 }
     from "./Funcs/auth.js";
 
@@ -32,6 +33,8 @@ makeCounter(userCountElem, userCount)
 makeCounter(numbersCourseElem, numbersCourse)
 makeCounter(minutesCourseElem, minutesCourse)
 async function initApp(){
+    const token = CookieManager.get('token')
+    console.log(token)
     try{
 
     }
@@ -42,6 +45,12 @@ async function initApp(){
 
     }
 }
-document.documentElement.addEventListener('DOMContentLoaded', async () =>{
+document.addEventListener('DOMContentLoaded', async () =>{
+    /*console.log(loadingOverlay)
+    console.log('ok')
+    setTimeout(() => {
+        hideLoadingOverlay(loadingOverlay)
+        showErrorOverlay(errorOverlay)
+    },3000)*/
     await initApp()
 })

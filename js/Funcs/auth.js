@@ -51,6 +51,15 @@ const CookieManager = {
         document.cookie = name + "=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT"
     }
 }
+function hideLoadingOverlay(elem){
+    elem.classList.add('hidden')
+}
+function showErrorOverlay(elem){
+    elem.classList.add('errorOverlay--show')
+}
+function hideErrorOverlay(elem){
+    elem.classList.remove('errorOverlay--show')
+}
 function showErrorMessage(message) {
     return Swal.fire({
         icon: 'error',
@@ -163,4 +172,5 @@ export {
     clearInputs,
     isValidPhoneNumber,isValidUsername,isValidEmail,isValidPassword,isValidFullName,
     errorOverlayShow,registerNewUser,CookieManager,
+    hideLoadingOverlay,showErrorOverlay,hideErrorOverlay
 }

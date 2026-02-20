@@ -1,0 +1,45 @@
+/* overlay کل صفحه */
+#loading-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: var(--white-color); /* نیمه شفاف */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* دایره چرخان */
+#loading-overlay .spinner {
+    animation: rotate 2s linear infinite;
+}
+
+#loading-overlay .spinner .path {
+    stroke: #4ade80; /* رنگ سبز روشن */
+    stroke-linecap: round;
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: 0;
+    animation: dash 1.5s ease-in-out infinite;
+}
+
+@keyframes rotate {
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes dash {
+    0% { stroke-dasharray: 1, 200; stroke-dashoffset: 0; }
+    50% { stroke-dasharray: 90, 150; stroke-dashoffset: -35; }
+    100% { stroke-dasharray: 90, 150; stroke-dashoffset: -124; }
+}
+
+/* مخفی کردن Overlay */
+#loading-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+}

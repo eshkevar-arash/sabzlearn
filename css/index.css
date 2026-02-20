@@ -7,6 +7,8 @@
 @import "component/footer.css";
 @import "component/courses-box.css";
 @import "component/main-header.css";
+@import "component/loading-overlay.css";
+@import "component/error-overlay.css";
 @import "helper-class.css";
 
 .header{

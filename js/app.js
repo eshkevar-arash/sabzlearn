@@ -1,6 +1,7 @@
 const baseUrl = "http://localhost:4000/v1"
 let users
-
+/*let token*/
+const loadingOverlay = document.querySelector('#loading-overlay')
 const mobileMenuBtn = document.querySelector('.mobile-menu__btn')
 const mobileBar = document.querySelector('.mobile-bar')
 const overlay = document.querySelector('.overlay')
@@ -32,8 +33,8 @@ mobileCategoryMenu.addEventListener('click', event => {
 /*Finish Mobile Category Menu*/
 
 /*Start Retry-Button For Reload Site*/
-const retryBtn = document.querySelector('.retryBtn')
 const errorOverlay = document.querySelector('.errorOverlay')
+const retryBtn = errorOverlay.querySelector('.retryBtn')
 retryBtn.addEventListener('click', () => {
     errorOverlay.classList.remove('errorOverlay--show')
     window.location.reload()
