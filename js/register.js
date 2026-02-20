@@ -7,6 +7,7 @@ import {
     isValidPhoneNumber,isValidUsername,isValidEmail,isValidPassword,isValidFullName,
     errorOverlayShow,
     registerNewUser,
+    CookieManager
 }
 from "./Funcs/auth.js";
 /*========================================================*/
@@ -17,7 +18,7 @@ const phoneInput = document.querySelector('.phone')
 const passwordInput = document.querySelector('.password')
 const confirmPasswordInput = document.querySelector('.confirmPassword')
 const registerFormBtn = document.querySelector('#register-form-Btn')
-const loginFormRememberInputs = document.querySelector('#login-form__remember-input')
+const rememberInputs = document.querySelector('#login-form__remember-input')
 async function registerNewUserHandler(){
     const name = nameInput.value.trim()
     const username = usernameInput.value.trim()
@@ -51,8 +52,13 @@ async function registerNewUserHandler(){
         registerFormBtn.textContent = 'در حال ارسال...'
         try {
             const data = await registerNewUser(newUser)
-            console.log(data.user)
-            console.log(data.accessToken)
+           /* console.log(data.user)
+            console.log(data.accessToken)*/
+            if (rememberInputs.checked){
+                CookieManager.set('token', data.accessToken, 2)
+            }else {
+                CookieManager.set('token', data.accessToken, 0)
+            }
             Toast.fire({
                 title: 'ثبت نام شما با موفقیت انجام شد',
                 icon: 'success',
@@ -80,6 +86,7 @@ registerFormBtn.addEventListener('click', async event => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    resetRememberInput(loginFormRememberInputs)
+    /*console.log(rememberInputs.checked)*/
+    resetRememberInput(rememberInputs)
     clearInputs(nameInput,usernameInput,emailInput,phoneInput,passwordInput,confirmPasswordInput)
 })

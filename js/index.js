@@ -1,3 +1,16 @@
+import {
+    Toast,
+    showErrorMessage,
+    toastMessage,
+    resetRememberInput,
+    clearInputs,
+    isValidPhoneNumber,isValidUsername,isValidEmail,isValidPassword,isValidFullName,
+    errorOverlayShow,
+    registerNewUser,
+    CookieManager
+}
+    from "./Funcs/auth.js";
+
 const userCountElem = document.querySelector('#users-count')
 const numbersCourseElem = document.querySelector('#numbers-course')
 const minutesCourseElem = document.querySelector('#minutes-course')
@@ -18,7 +31,6 @@ const minutesCourse = 31_320
 makeCounter(userCountElem, userCount)
 makeCounter(numbersCourseElem, numbersCourse)
 makeCounter(minutesCourseElem, minutesCourse)
-/*
 async function initApp(){
     try{
 
@@ -32,4 +44,4 @@ async function initApp(){
 }
 document.documentElement.addEventListener('DOMContentLoaded', async () =>{
     await initApp()
-})*/
+})
