@@ -19,7 +19,8 @@ const passwordInput = document.querySelector('.password')
 const confirmPasswordInput = document.querySelector('.confirmPassword')
 const registerFormBtn = document.querySelector('#register-form-Btn')
 
-async function registerNewUserHandler(){
+registerFormBtn.addEventListener('click', async event => {
+    event.preventDefault()
     const name = nameInput.value.trim()
     const username = usernameInput.value.trim()
     const email = emailInput.value.trim()
@@ -49,11 +50,11 @@ async function registerNewUserHandler(){
             password,
             confirmPassword
         }
-        registerFormBtn.textContent = 'در حال ارسال...'
+        registerFormBtn.querySelector('span').textContent = 'در حال ارسال...'
         try {
             const data = await registerNewUser(newUser)
-           /* console.log(data.user)
-            console.log(data.accessToken)*/
+            /* console.log(data.user)
+             console.log(data.accessToken)*/
             if (rememberInputs.checked){
                 CookieManager.set('token', data.accessToken, 2)
             }else {
@@ -63,13 +64,9 @@ async function registerNewUserHandler(){
         }catch (err){
             showErrorMessage(err.message)
         }finally {
-            registerFormBtn.textContent = 'ثبت نام'
+            registerFormBtn.querySelector('span').textContent = 'ثبت نام'
         }
     }
-}
-registerFormBtn.addEventListener('click', async event => {
-    event.preventDefault()
-    await registerNewUserHandler()
 })
 
 

@@ -2,8 +2,10 @@ import {
  showErrorMessage, CookieManager, toastMessage, resetRememberInput, clearInputs,
  hideLoadingOverlay, showErrorOverlay, getMe
 } from "./Funcs/auth.js";
+
 const identifierElem = document.querySelector('#identifier')
 const passwordElem = document.querySelector('#loginPassword')
+const loginBtn = document.querySelector('#login-btn')
 async function initApp(){
     const token = CookieManager.get('token')
     console.log(token)
@@ -25,7 +27,21 @@ async function initApp(){
     }
 
 }
-hideLoadingOverlay()
+loginBtn.addEventListener('click', event => {
+    event.preventDefault()
+    const identifier = identifierElem.value.trim()
+    const password = passwordElem.value.trim()
+    if (!identifier || !password){
+        showErrorMessage('لطفاً تمام فیلدها را پر کنید')
+    }else {
+        const userInfo = {
+            identifier,
+            password
+        }
+        loginBtn.querySelector('span').textContent = 'در حال ارسال ...'
+
+    }
+})
 document.addEventListener('DOMContentLoaded', async () => {
     /*console.log(rememberInputs.checked)*/
     await initApp()
