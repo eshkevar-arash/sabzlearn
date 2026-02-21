@@ -50,7 +50,7 @@ async function initApp(){
         showErrorOverlay(err.message)
     }
     finally {
-        hideLoadingOverlay(loadingOverlay)
+        hideLoadingOverlay()
     }
 }
 document.addEventListener('DOMContentLoaded', async () =>{

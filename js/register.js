@@ -4,12 +4,12 @@ import {
     toastMessage,
     resetRememberInput,
     clearInputs,
-    isValidPhoneNumber,isValidUsername,isValidEmail,isValidPassword,isValidFullName,
+    isValidPhoneNumber, isValidUsername, isValidEmail, isValidPassword, isValidFullName,
     errorOverlayShow,
     registerNewUser,
-    CookieManager
+    CookieManager, getMe, showErrorOverlay, hideLoadingOverlay
 }
-from "./Funcs/auth.js";
+    from "./Funcs/auth.js";
 /*========================================================*/
 const nameInput = document.querySelector('.name')
 const usernameInput = document.querySelector('.username')
@@ -18,7 +18,7 @@ const phoneInput = document.querySelector('.phone')
 const passwordInput = document.querySelector('.password')
 const confirmPasswordInput = document.querySelector('.confirmPassword')
 const registerFormBtn = document.querySelector('#register-form-Btn')
-const rememberInputs = document.querySelector('#login-form__remember-input')
+
 async function registerNewUserHandler(){
     const name = nameInput.value.trim()
     const username = usernameInput.value.trim()
@@ -59,18 +59,7 @@ async function registerNewUserHandler(){
             }else {
                 CookieManager.set('token', data.accessToken)
             }
-            Toast.fire({
-                title: 'ثبت نام شما با موفقیت انجام شد',
-                icon: 'success',
-                customClass: {
-                    popup: 'my-toast',
-                    icon: 'my-toast-icon',
-                    container: 'my-toast-container'
-                },
-                didClose: () => {
-                    window.location.href = 'index.html'
-                }
-            });
+            toastMessage('ثبت نام شما با موفقیت انجام شد','index')
         }catch (err){
             showErrorMessage(err.message)
         }finally {
@@ -84,10 +73,28 @@ registerFormBtn.addEventListener('click', async event => {
 })
 
 
-
-document.addEventListener('DOMContentLoaded', () => {
+async function initApp(){
+    const token = CookieManager.get('token')
+    try{
+        [user] = await Promise.all([
+            getMe(token)
+        ])
+        if (user){
+            console.log(user)
+        }else {
+            console.log('no token')
+        }
+    }
+    catch (err){
+        showErrorOverlay(err.message)
+    }
+    finally {
+        hideLoadingOverlay()
+    }
+}
+document.addEventListener('DOMContentLoaded', async () => {
     /*console.log(rememberInputs.checked)*/
-    console.log(CookieManager.get('token'))
+    await initApp()
     resetRememberInput(rememberInputs)
     clearInputs(nameInput,usernameInput,emailInput,phoneInput,passwordInput,confirmPasswordInput)
 })
