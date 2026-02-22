@@ -35,12 +35,11 @@ makeCounter(minutesCourseElem, minutesCourse)
 
 async function initApp(){
     const token = CookieManager.get('token')
-    console.log(token)
     try{
         [user] = await Promise.all([
             getMe(token)
         ])
-        showNameInNavbar()
+        showNameInNavbar(user)
     }
     catch (err){
         showErrorOverlay(err.message)

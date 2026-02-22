@@ -212,8 +212,36 @@ async function login(user){
     const data = await res.json()
     return data
 }
-function showNameInNavbar(){
+function showNameInNavbar(user){
+    console.log(user)
+    const mainHeaderProfileBox = document.querySelector('.main-header__profile-box')
 
+    const mobileBar = document.querySelector('.mobile-bar')
+    const mobileBarTopLogin = mobileBar.querySelector('.mobile-bar__top-login')
+    const mobileBarTop = mobileBar.querySelector('.mobile-bar__top')
+    const mobileLogoutBtn = mobileBar.querySelector('#mobile-logout-btn')
+    const mobileBarShortCuts = mobileBar.querySelector('.mobile-bar__shortCuts')
+    if (user){
+        mainHeaderProfileBox.innerHTML = `
+            <i class="fas fa-user main-header__profile-icon"></i>
+            <span class="main-header__profile-text">${user.name}</span>
+        `
+        mobileLogoutBtn.style.display = 'flex'
+        mobileBarTop.style.display = 'flex'
+        mobileBarTopLogin.style.display = 'none'
+        mobileBarShortCuts.style.display = 'block'
+        mobileBarTop.innerHTML = `
+            <div class="mobile-bar__info">
+                <a href="#" class="mobile-bar__info-link">
+                    <img class="mobile-bar__info-link-image" src="./images/info/bb2b510d7ee6483dd0acf1b88a80de79.jpg" alt="user">
+                </a>
+                <div class="mobile-bar__info-details">
+                    <span class="mobile-bar__info-username">${user.name}</span>
+                    <span class="mobile-bar__info-date">${user.phone}</span>
+                </div>
+            </div>
+        `
+    }
 }
 export {
     Toast,
