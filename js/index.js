@@ -8,7 +8,7 @@ import {
     errorOverlayShow,
     registerNewUser,
     CookieManager,
-    hideLoadingOverlay,showErrorOverlay,hideErrorOverlay,getMe
+    hideLoadingOverlay,showErrorOverlay,hideErrorOverlay,getMe,showNameInNavbar
 }
     from "./Funcs/auth.js";
 
@@ -40,11 +40,7 @@ async function initApp(){
         [user] = await Promise.all([
             getMe(token)
         ])
-        if (user){
-            console.log(user)
-        }else {
-            console.log('no token')
-        }
+        showNameInNavbar()
     }
     catch (err){
         showErrorOverlay(err.message)

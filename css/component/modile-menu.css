@@ -37,9 +37,27 @@
     margin-bottom: 2rem;
     padding: 14px 1.6rem;
     background-color: #f3f4f6;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: space-between;
+}
+.mobile-bar__top-login{
+    margin-bottom: 2rem;
+    padding: 14px 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.mobile-bar__top-login-link{
+    color: var(--primary-color);
+    font-size: 1.6rem;
+    font-family: var(--medium-font);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.mobile-bar__top-login-link i{
+    font-size: 1.5rem;
 }
 .mobile-bar__info{
     display: flex;
@@ -85,6 +103,9 @@
     padding: 0 1.5rem;
 }
 /*Start Short Cut Styles*/
+.mobile-bar__shortCuts{
+    display: none;
+}
 .mobile-bar__shortCuts, .mobile-category{
     padding-bottom: 16px;
     margin-bottom: 16px;

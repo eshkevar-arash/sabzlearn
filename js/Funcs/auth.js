@@ -212,6 +212,9 @@ async function login(user){
     const data = await res.json()
     return data
 }
+function showNameInNavbar(){
+
+}
 export {
     Toast,
     showErrorMessage,
@@ -220,5 +223,5 @@ export {
     clearInputs,
     isValidPhoneNumber,isValidUsername,isValidEmail,isValidPassword,isValidFullName,
     errorOverlayShow,registerNewUser,CookieManager,
-    hideLoadingOverlay,showErrorOverlay,hideErrorOverlay,getMe,login
+    hideLoadingOverlay,showErrorOverlay,hideErrorOverlay,getMe,login,showNameInNavbar
 }
