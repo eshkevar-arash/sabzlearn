@@ -76,9 +76,7 @@ function showErrorMessage(message) {
         }
     })
 }
-function redirect(href){
-    location.href = `${href}.html`
-}
+
 function toastMessage(msg,redirectPath=null) {
     Toast.fire({
         title: msg,
@@ -197,6 +195,23 @@ async function getMe(token){
         throw new Error('ارتباط با سرور برقرار نشد.')
     }
 }
+async function login(user){
+    const res = await fetch(`${baseUrl}/auth/login`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(user)
+    })
+    if (res.status === 401){
+        throw  new Error('کاربر مورد با این ایمیل یا نام کاربری یافت نشد')
+    }
+    if (!res.ok) {
+        throw new Error("دسترسی به سرور با مشکل مواجه شد")
+    }
+    const data = await res.json()
+    return data
+}
 export {
     Toast,
     showErrorMessage,
@@ -205,5 +220,5 @@ export {
     clearInputs,
     isValidPhoneNumber,isValidUsername,isValidEmail,isValidPassword,isValidFullName,
     errorOverlayShow,registerNewUser,CookieManager,
-    hideLoadingOverlay,showErrorOverlay,hideErrorOverlay,getMe,
+    hideLoadingOverlay,showErrorOverlay,hideErrorOverlay,getMe,login
 }
