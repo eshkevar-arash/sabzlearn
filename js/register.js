@@ -71,6 +71,8 @@ registerFormBtn.addEventListener('click', async event => {
 
 
 async function initApp(){
+    resetRememberInput(rememberInputs)
+    clearInputs(nameInput,usernameInput,emailInput,phoneInput,passwordInput,confirmPasswordInput)
     const token = CookieManager.get('token')
     try{
         [user] = await Promise.all([
@@ -92,6 +94,5 @@ async function initApp(){
 document.addEventListener('DOMContentLoaded', async () => {
     /*console.log(rememberInputs.checked)*/
     await initApp()
-    resetRememberInput(rememberInputs)
-    clearInputs(nameInput,usernameInput,emailInput,phoneInput,passwordInput,confirmPasswordInput)
+
 })

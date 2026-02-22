@@ -7,14 +7,16 @@ const identifierElem = document.querySelector('#identifier')
 const passwordElem = document.querySelector('#loginPassword')
 const loginBtn = document.querySelector('#login-btn')
 async function initApp(){
+    resetRememberInput(rememberInputs)
+    clearInputs(identifierElem,passwordElem)
     const token = CookieManager.get('token')
-    console.log(token)
     try{
         [user] = await Promise.all([
          getMe(token)
         ])
      if (user){
-        console.log(user)
+         console.log(user)
+        identifierElem.value = user.email
      }else {
         console.log('no token')
      }
@@ -60,6 +62,4 @@ loginBtn.addEventListener('click', async event => {
 document.addEventListener('DOMContentLoaded', async () => {
     /*console.log(rememberInputs.checked)*/
     await initApp()
-    resetRememberInput(rememberInputs)
-    clearInputs(identifierElem,passwordElem)
 })
