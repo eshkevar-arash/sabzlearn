@@ -11,6 +11,7 @@
 @import "helper-class.css";
 @import "component/error-overlay.css";
 @import "component/sweet-alert.css";
+@import "component/tooltip.css";
 /*@import "./breadcrumd.css";*/
 /*@import "./similar-courses.css";*/
 .login{

@@ -1,0 +1,48 @@
+.custom-tooltip {
+    width: 200px;
+    color: #333;
+
+    border-radius: 8px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+}
+#tippy-1{
+    left: 50px !important;
+}
+.tippy-content{
+    padding: .5rem 0 !important;border-radius: 1rem;
+
+}
+.custom-tooltip a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 14px;
+    text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:.5rem 1rem;
+    direction: ltr;
+}
+.custom-tooltip #tooltip-logout-btn{
+    font-size: 1.2rem;
+}
+
+.custom-tooltip a:hover {
+    background-color: darkgrey;
+}
+.tooltip-overlay{
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4); /* نیمه‌شفاف مشکی */
+    z-index: 999; /* کمتر از z-index تول‌تیپ */
+    display: none;
+    transition: opacity 0.3s ease;
+}
+.tooltip-overlay.active {
+    display: block;
+    opacity: 1;
+}

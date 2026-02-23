@@ -7,7 +7,6 @@ import {
     isValidPhoneNumber,isValidUsername,isValidEmail,isValidPassword,isValidFullName,
     errorOverlayShow,
     registerNewUser,
-    CookieManager,
     hideLoadingOverlay,showErrorOverlay,hideErrorOverlay,getMe,showNameInNavbar
 }
     from "./Funcs/auth.js";

@@ -10,6 +10,7 @@
 @import "helper-class.css";
 @import "component/breadcrumd.css";
 @import "component/similar-courses.css";
+@import "component/tooltip.css";
 
 /*Start Course Info Styles*/
 .course-info{

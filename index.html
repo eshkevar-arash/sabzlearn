@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./vendor/Swiper-Slider/swiper-bundle.min.css">
     <link rel="stylesheet" href="./vendor/FontAwesome/all.min.css">
     <link rel="stylesheet" href="./vendor/SweetAlert2/animate.min.css">
+    <link rel="stylesheet" href="./vendor/Tooltip/animation-scale.css">
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/responsive.css">
@@ -313,9 +314,13 @@
                         <a href="#" class="main-header__cart-btn">
                             <i href="#" class="fas fa-shopping-cart main-header__cart-icon"></i>
                         </a>
-                        <a href="login.html" class="main-header__profile-box">
+                        <a href="login.html" id="login-or-register"  class="main-header__profile-box">
                             <!--<i class="fas fa-user main-header__profile-icon"></i>-->
                             <span class="main-header__profile-text">ورود یا ثبت نام</span>
+                        </a>
+                        <a   class="main-header__profile-box" id="user-profix">
+                            <i class="fas fa-user main-header__profile-icon"></i>
+                            <span class="main-header__profile-text">user-name</span>
                         </a>
                     </div>
                 </div>
@@ -1335,6 +1340,7 @@
         </div>
     </footer>
     <div class="overlay"></div>
+    <div class="tooltip-overlay"></div>
     <div class="errorOverlay">
         <div class="errorBox">
             <h2></h2>
@@ -1347,8 +1353,11 @@
 <script src="vendor/Swiper-Slider/swiper-bundle.min.js"></script>
 <script src="vendor/SweetAlert2/sweetalert2.js"></script>
 <script src="vendor/Type-writer/type-writer.js"></script>
+<script src="vendor/Tooltip/popper.min.js"></script>
+<script src="vendor/Tooltip/tippy-bundle.js"></script>
 <script src="./js/typeWriter.js"></script>
 <script src="./js/swiper.js"></script>
+<!--<script src="./js/tooltip.js"></script>-->
 <script src="./js/app.js"></script>
 <script src="./js/index.js" type="module"></script>
 </body>

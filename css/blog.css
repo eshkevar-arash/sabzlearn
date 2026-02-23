@@ -10,6 +10,7 @@
 @import "helper-class.css";
 @import "component/breadcrumd.css";
 @import "component/similar-courses.css";
+@import "component/tooltip.css";
 .blog-top{
     margin: 6rem 0;
 }

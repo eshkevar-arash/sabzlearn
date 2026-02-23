@@ -189,3 +189,6 @@
     color: var(--primary-color);
 }
 /*Finish Main-Header Style*/
+#user-profix{
+    display: none;
+}

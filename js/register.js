@@ -7,7 +7,7 @@ import {
     isValidPhoneNumber, isValidUsername, isValidEmail, isValidPassword, isValidFullName,
     errorOverlayShow,
     registerNewUser,
-    CookieManager, getMe, showErrorOverlay, hideLoadingOverlay
+     getMe, showErrorOverlay, hideLoadingOverlay
 }
     from "./Funcs/auth.js";
 /*========================================================*/
@@ -71,8 +71,7 @@ registerFormBtn.addEventListener('click', async event => {
 
 
 async function initApp(){
-    resetRememberInput(rememberInputs)
-    clearInputs(nameInput,usernameInput,emailInput,phoneInput,passwordInput,confirmPasswordInput)
+
     const token = CookieManager.get('token')
     try{
         [user] = await Promise.all([
@@ -91,8 +90,10 @@ async function initApp(){
         hideLoadingOverlay()
     }
 }
-document.addEventListener('DOMContentLoaded', async () => {
+document.addEventListener('DOMContentLoaded', () => {
     /*console.log(rememberInputs.checked)*/
-    await initApp()
+    resetRememberInput(rememberInputs)
+    clearInputs(nameInput,usernameInput,emailInput,phoneInput,passwordInput,confirmPasswordInput)
+
 
 })

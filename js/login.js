@@ -1,5 +1,5 @@
 import {
- showErrorMessage, CookieManager, toastMessage, resetRememberInput, clearInputs,
+ showErrorMessage, toastMessage, resetRememberInput, clearInputs,
  hideLoadingOverlay, showErrorOverlay, getMe, login
 } from "./Funcs/auth.js";
 

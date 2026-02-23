@@ -9,6 +9,7 @@
 @import "component/main-header.css";
 @import "component/loading-overlay.css";
 @import "component/error-overlay.css";
+@import "component/tooltip.css";
 @import "helper-class.css";
 
 .header{

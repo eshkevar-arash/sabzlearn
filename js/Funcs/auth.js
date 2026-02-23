@@ -24,34 +24,7 @@ const Toast = Swal.mixin({
     }
 });
 
-const CookieManager = {
-    // ساختن یا آپدیت کوکی
-    set: function(name, value, days) {
-        let expires = ""
-        if (days) {
-            const date = new Date()
-            date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000)
-            expires = "expires=" + date.toUTCString()
-        }
-        document.cookie = name + "=" + value + "; path=/; " + expires
-    },
 
-    // خوندن کوکی
-    get: function(name) {
-        const nameEQ = name + "="
-        const ca = document.cookie.split(';')
-        for (let i = 0; i < ca.length; i++) {
-            let c = ca[i].trim()
-            if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length)
-        }
-        return null
-    },
-
-    // حذف کوکی
-    delete: function(name) {
-        document.cookie = name + "=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT"
-    }
-}
 function hideLoadingOverlay(){
     const loadingOverlay = document.querySelector('#loading-overlay')
     loadingOverlay.classList.add('hidden')
@@ -212,48 +185,25 @@ async function login(user){
     const data = await res.json()
     return data
 }
-function logout(token){
-    CookieManager.delete('token')
-    window.location.reload()
-}
-function showNameInNavbar(user,token){
-    console.log(user)
-    console.log(token)
-    const mainHeaderProfileBox = document.querySelector('.main-header__profile-box')
 
-    const mobileBar = document.querySelector('.mobile-bar')
-    const mobileBarTopLogin = mobileBar.querySelector('.mobile-bar__top-login')
-    const mobileBarTop = mobileBar.querySelector('.mobile-bar__top')
-    const mobileLogoutBtn = mobileBar.querySelector('#mobile-logout-btn')
-    const mobileBarShortCuts = mobileBar.querySelector('.mobile-bar__shortCuts')
+function showNameInNavbar(user){
+    console.log(user)
+
     if (user){
-        mainHeaderProfileBox.innerHTML = `
-            <i class="fas fa-user main-header__profile-icon"></i>
-            <span class="main-header__profile-text">${user.name}</span>
-        `
-        mainHeaderProfileBox.setAttribute('href', "")
-        mainHeaderProfileBox.addEventListener('click', event => {
+        loginOrRegister.style.display = 'none'
+        userProfix.style.display = 'flex'
+        userProfix.querySelector('.main-header__profile-text').textContent = user.name
+
+        /*mainHeaderProfileBox.addEventListener('click', event => {
             event.preventDefault()
-            console.log('ok')
-        })
+        })*/
         mobileLogoutBtn.style.display = 'flex'
-        mobileLogoutBtn.addEventListener('click', () => {
-            logout(token)
-        })
+
         mobileBarTop.style.display = 'flex'
+        mobileBarTop.querySelector('.mobile-bar__info-username').textContent = user.name
+        mobileBarTop.querySelector('.mobile-bar__info-date').textContent = user.phone
         mobileBarTopLogin.style.display = 'none'
         mobileBarShortCuts.style.display = 'block'
-        mobileBarTop.innerHTML = `
-            <div class="mobile-bar__info">
-                <a href="#" class="mobile-bar__info-link">
-                    <img class="mobile-bar__info-link-image" src="./images/info/bb2b510d7ee6483dd0acf1b88a80de79.jpg" alt="user">
-                </a>
-                <div class="mobile-bar__info-details">
-                    <span class="mobile-bar__info-username">${user.name}</span>
-                    <span class="mobile-bar__info-date">${user.phone}</span>
-                </div>
-            </div>
-        `
     }
 }
 export {
@@ -263,6 +213,6 @@ export {
     resetRememberInput,
     clearInputs,
     isValidPhoneNumber,isValidUsername,isValidEmail,isValidPassword,isValidFullName,
-    errorOverlayShow,registerNewUser,CookieManager,
+    errorOverlayShow,registerNewUser,
     hideLoadingOverlay,showErrorOverlay,hideErrorOverlay,getMe,login,showNameInNavbar
 }
