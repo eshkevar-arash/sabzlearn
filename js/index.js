@@ -39,7 +39,7 @@ async function initApp(){
         [user] = await Promise.all([
             getMe(token)
         ])
-        showNameInNavbar(user)
+        showNameInNavbar(user,token)
     }
     catch (err){
         showErrorOverlay(err.message)

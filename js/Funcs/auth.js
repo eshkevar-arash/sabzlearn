@@ -212,8 +212,13 @@ async function login(user){
     const data = await res.json()
     return data
 }
-function showNameInNavbar(user){
+function logout(token){
+    CookieManager.delete('token')
+    window.location.reload()
+}
+function showNameInNavbar(user,token){
     console.log(user)
+    console.log(token)
     const mainHeaderProfileBox = document.querySelector('.main-header__profile-box')
 
     const mobileBar = document.querySelector('.mobile-bar')
@@ -227,6 +232,9 @@ function showNameInNavbar(user){
             <span class="main-header__profile-text">${user.name}</span>
         `
         mobileLogoutBtn.style.display = 'flex'
+        mobileLogoutBtn.addEventListener('click', () => {
+            logout(token)
+        })
         mobileBarTop.style.display = 'flex'
         mobileBarTopLogin.style.display = 'none'
         mobileBarShortCuts.style.display = 'block'
