@@ -231,6 +231,11 @@ function showNameInNavbar(user,token){
             <i class="fas fa-user main-header__profile-icon"></i>
             <span class="main-header__profile-text">${user.name}</span>
         `
+        mainHeaderProfileBox.setAttribute('href', "")
+        mainHeaderProfileBox.addEventListener('click', event => {
+            event.preventDefault()
+            console.log('ok')
+        })
         mobileLogoutBtn.style.display = 'flex'
         mobileLogoutBtn.addEventListener('click', () => {
             logout(token)

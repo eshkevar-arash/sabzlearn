@@ -49,7 +49,7 @@ loginBtn.addEventListener('click', async event => {
             }else {
                 CookieManager.set('token', data.accessToken)
             }
-            toastMessage('ثبت نام شما با موفقیت انجام شد','index')
+            toastMessage('ورود شما با موفقیت انجام شد','index')
         }catch (err){
             showErrorMessage(err.message)
         }
