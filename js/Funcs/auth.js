@@ -1,3 +1,9 @@
+import {
+    getRandomItems,createDesktopTopBarItem
+} from "./shared.js";
+
+
+
 const Toast = Swal.mixin({
     showClass: {
         popup: `
@@ -23,8 +29,6 @@ const Toast = Swal.mixin({
         toast.onmouseleave = Swal.resumeTimer;
     }
 });
-
-
 function hideLoadingOverlay(){
     const loadingOverlay = document.querySelector('#loading-overlay')
     loadingOverlay.classList.add('hidden')
@@ -206,6 +210,29 @@ function showNameInNavbar(user){
         mobileBarShortCuts.style.display = 'block'
     }
 }
+async function getDesktopTopBarMenu(){
+    const res = await fetch(`${baseUrl}/menus/topbar`,{
+        method: "GET"
+    })
+    if (!res.ok){
+        throw new Error('دسترسی به سرور با مشکل مواجه شد')
+    }
+    const data = await res.json()
+    return data
+}
+
+function renderDesktopTopBarMenu(arr){
+    const desktopTopBar = document.querySelector('.top-bar')
+    const topBarMenu = desktopTopBar.querySelector('.top-bar__menu')
+    topBarMenu.innerHTML = ''
+    const fragmentElem = document.createDocumentFragment()
+    const selectArr = getRandomItems(arr)
+    console.log(topBarMenu)
+    selectArr.forEach(row => {
+        fragmentElem.appendChild(createDesktopTopBarItem(row))
+    })
+    topBarMenu.appendChild(fragmentElem)
+}
 export {
     Toast,
     showErrorMessage,
@@ -214,5 +241,6 @@ export {
     clearInputs,
     isValidPhoneNumber,isValidUsername,isValidEmail,isValidPassword,isValidFullName,
     errorOverlayShow,registerNewUser,
-    hideLoadingOverlay,showErrorOverlay,hideErrorOverlay,getMe,login,showNameInNavbar
+    hideLoadingOverlay,showErrorOverlay,hideErrorOverlay,getMe,login,showNameInNavbar,
+    getDesktopTopBarMenu,renderDesktopTopBarMenu
 }

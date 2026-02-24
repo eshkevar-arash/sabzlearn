@@ -30,6 +30,7 @@ const CookieManager = {
 let users
 let user
 /*let token*/
+let desktopTopBarMenu
 const loginOrRegister = document.querySelector('#login-or-register')
 const userProfix = document.querySelector('#user-profix')
 
