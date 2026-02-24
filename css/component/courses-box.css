@@ -55,6 +55,7 @@
 .courses-box__rating{
     display: flex;
     align-items: center;
+    direction: ltr;
 }
 .courses-box__status{
     display: flex;

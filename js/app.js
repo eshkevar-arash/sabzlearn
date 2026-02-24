@@ -31,6 +31,7 @@ let users
 let user
 /*let token*/
 let desktopTopBarMenu
+let allCourses;
 const loginOrRegister = document.querySelector('#login-or-register')
 const userProfix = document.querySelector('#user-profix')
 
