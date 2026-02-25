@@ -263,17 +263,40 @@ async function getPopularCourses(){
     const data = await res.json()
     return data
 }
-
 function renderPopularCourse(popularCourses){
-    console.log(popularCourses)
     const fragmentElem = document.createDocumentFragment()
     const popularWrapper = document.querySelector('#popular-swiper-wrapper')
     popularWrapper.innerHTML = ''
     popularCourses.forEach(course => {
-        console.log(course)
         fragmentElem.appendChild(createCourseBoxPopular(course))
     })
     popularWrapper.appendChild(fragmentElem)
+}
+async function getPrelessCourses(){
+    const res = await fetch(`${baseUrl}/courses/presell`, {
+        method: "GET"
+    })
+    if (!res.ok){
+        throw new Error('دسترسی به سرور با مشکل مواجه شد')
+    }
+    const data = await res.json()
+    return data
+}
+function renderPresellCourse(presellCourses){
+    console.log(presellCourses)
+    const fragmentElem = document.createDocumentFragment()
+    const presellCoursesWrapper = document.querySelector('#presell-courses-wrapper')
+    presellCoursesWrapper.innerHTML = ''
+    presellCourses.forEach(course => {
+        fragmentElem.appendChild(createCourseBoxPopular(course))
+    })
+    presellCoursesWrapper.appendChild(fragmentElem)
+    // 👇 این قسمت مهمه
+    /*if(presellSwiper){
+        presellSwiper.update()
+        presellSwiper.pagination.render()
+        presellSwiper.pagination.update()
+    }*/
 }
 export {
     Toast,
@@ -285,5 +308,5 @@ export {
     errorOverlayShow,registerNewUser,
     hideLoadingOverlay,showErrorOverlay,hideErrorOverlay,getMe,login,showNameInNavbar,
     getDesktopTopBarMenu,renderDesktopTopBarMenu,getAllCourses,renderNewestCourses,
-    getPopularCourses,renderPopularCourse
+    getPopularCourses,renderPopularCourse,getPrelessCourses,renderPresellCourse
 }

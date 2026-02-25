@@ -21,7 +21,7 @@ var popularSwiper = new Swiper("#popular-swiper", {
     }
 });
 
-var presellSwiper = new Swiper("#presell-swiper", {
+/*var presellSwiper = new Swiper("#presell-swiper", {
     slidesPerView: 'auto', // برای سایزهای کوچیک
     spaceBetween: 20,
     loop: true,
@@ -40,7 +40,7 @@ var presellSwiper = new Swiper("#presell-swiper", {
             slidesPerView: 3
         }
     }
-});
+});*/
 /*Start blog swiper*/
 var blogSlider = new Swiper("#blog-slider", {
     slidesPerView: 1, // برای سایزهای کوچیک

@@ -27,12 +27,37 @@ const CookieManager = {
         document.cookie = name + "=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT"
     }
 }
+let presellSwiper
+
+function initPresellSwiper(){
+    presellSwiper = new Swiper('#presell-swiper', {
+        slidesPerView: 'auto', // برای سایزهای کوچیک
+        spaceBetween: 20,
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        breakpoints: {
+            576: {
+                slidesPerView: 1
+            },
+            768: {
+                slidesPerView: 2
+            },
+            1200: {
+                slidesPerView: 3
+            }
+        }
+    })
+}
 let users
 let user
 /*let token*/
 let desktopTopBarMenu
 let allCourses;
-let popularCourses
+let popularCourses;
+let presellCourses
 const loginOrRegister = document.querySelector('#login-or-register')
 const userProfix = document.querySelector('#user-profix')
 
