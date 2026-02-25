@@ -8,7 +8,8 @@ import {
     errorOverlayShow,
     registerNewUser,
     hideLoadingOverlay,showErrorOverlay,hideErrorOverlay,getMe,showNameInNavbar,
-    getDesktopTopBarMenu,renderDesktopTopBarMenu,getAllCourses,renderNewestCourses
+    getDesktopTopBarMenu,renderDesktopTopBarMenu,getAllCourses,renderNewestCourses,
+    getPopularCourses,renderPopularCourse,
 }
     from "./Funcs/auth.js";
 
@@ -36,14 +37,16 @@ makeCounter(minutesCourseElem, minutesCourse)
 async function initApp(){
     const token = CookieManager.get('token')
     try{
-        [user,desktopTopBarMenu,allCourses] = await Promise.all([
+        [user,desktopTopBarMenu,allCourses,popularCourses] = await Promise.all([
             getMe(token),
             getDesktopTopBarMenu(),
-            getAllCourses()
+            getAllCourses(),
+            getPopularCourses()
         ])
         showNameInNavbar(user,token)
         renderDesktopTopBarMenu(desktopTopBarMenu)
         renderNewestCourses(allCourses)
+        renderPopularCourse(popularCourses)
     }
     catch (err){
         showErrorOverlay(err.message)
