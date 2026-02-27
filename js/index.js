@@ -9,7 +9,8 @@ import {
     registerNewUser,
     hideLoadingOverlay,showErrorOverlay,hideErrorOverlay,getMe,showNameInNavbar,
     getDesktopTopBarMenu,renderDesktopTopBarMenu,getAllCourses,renderNewestCourses,
-    getPopularCourses,renderPopularCourse,getPrelessCourses,renderPresellCourse
+    getPopularCourses,renderPopularCourse,getPrelessCourses,renderPresellCourse,getAllArticle,
+    renderNewestArticles,
 }
     from "./Funcs/auth.js";
 
@@ -37,12 +38,16 @@ makeCounter(minutesCourseElem, minutesCourse)
 async function initApp(){
     const token = CookieManager.get('token')
     try{
-        [user,desktopTopBarMenu,allCourses,popularCourses,presellCourses] = await Promise.all([
+        [
+            user,desktopTopBarMenu,allCourses,popularCourses,presellCourses,
+            allArticles
+        ] = await Promise.all([
             getMe(token),
             getDesktopTopBarMenu(),
             getAllCourses(),
             getPopularCourses(),
-            getPrelessCourses()
+            getPrelessCourses(),
+            getAllArticle()
         ])
         showNameInNavbar(user,token)
         renderDesktopTopBarMenu(desktopTopBarMenu)
@@ -50,6 +55,7 @@ async function initApp(){
         renderPopularCourse(popularCourses)
         renderPresellCourse(presellCourses)
         initPresellSwiper()
+        renderNewestArticles(allArticles)
     }
     catch (err){
         showErrorOverlay(err.message)

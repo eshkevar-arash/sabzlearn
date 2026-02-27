@@ -26,7 +26,7 @@ function createCourseBox(course){
         <div class="courses-box">
             <div class="courses-box__header">
                 <a href="#" class="courses-box__header-link">
-                    <img src="./images/courses/fareelancer.png" class="courses-box__header-image">
+                    <img src=http://localhost:4000/courses/covers/${course.cover} class="courses-box__header-image">
                 </a>
             </div>
             <div class="courses-box__main">
@@ -76,7 +76,7 @@ function createCourseBoxPopular(course){
         <div class="courses-box">
             <div class="courses-box__header">
                 <a href="#" class="courses-box__header-link">
-                    <img src="./images/courses/fareelancer.png" class="courses-box__header-image">
+                    <img src=http://localhost:4000/courses/covers/${course.cover} class="courses-box__header-image">
                 </a>
             </div>
             <div class="courses-box__main">
@@ -117,6 +117,26 @@ function createCourseBoxPopular(course){
     `
     return newDiv
 }
+function createArticleBox(article){
+    const newDiv = document.createElement('div')
+    newDiv.className = 'col-12 col-md-6 col-xl-4'
+    newDiv.innerHTML = `
+        <div class="article-card">
+            <div class="article-card__header">
+                <a class="article-card__header-link" href="#">
+                    <img src=http://localhost:4000/courses/covers/${article.cover} class="article-card__header-image">
+                </a>
+            </div>
+            <div class="article-card__content">
+                <a href="#" class="article-card__content-link">${article.title}</a>
+                <p class="article-card__content-text">${article.description}</p>
+                <a href="#" class="article-card__content-btn">بیشتر بخوانید</a>
+            </div>
+        </div>
+    `
+    return newDiv
+}
 export {
-    getRandomItems,createDesktopTopBarItem,createCourseBox,createCourseBoxPopular
+    getRandomItems,createDesktopTopBarItem,createCourseBox,createCourseBoxPopular,
+    createArticleBox
 }

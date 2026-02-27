@@ -1,5 +1,6 @@
 import {
-    getRandomItems,createDesktopTopBarItem,createCourseBox,createCourseBoxPopular
+    getRandomItems,createDesktopTopBarItem,createCourseBox,createCourseBoxPopular,
+    createArticleBox
 } from "./shared.js";
 
 
@@ -283,7 +284,6 @@ async function getPrelessCourses(){
     return data
 }
 function renderPresellCourse(presellCourses){
-    console.log(presellCourses)
     const fragmentElem = document.createDocumentFragment()
     const presellCoursesWrapper = document.querySelector('#presell-courses-wrapper')
     presellCoursesWrapper.innerHTML = ''
@@ -291,12 +291,26 @@ function renderPresellCourse(presellCourses){
         fragmentElem.appendChild(createCourseBoxPopular(course))
     })
     presellCoursesWrapper.appendChild(fragmentElem)
-    // 👇 این قسمت مهمه
-    /*if(presellSwiper){
-        presellSwiper.update()
-        presellSwiper.pagination.render()
-        presellSwiper.pagination.update()
-    }*/
+}
+function renderNewestArticles(allArticles){
+    const fragmentElem = document.createDocumentFragment()
+    const articleWrapper = document.querySelector('#article-wrapper')
+    articleWrapper.innerHTML = ''
+    const newestArticles = allArticles.slice(0,3)
+    newestArticles.forEach(article => {
+        fragmentElem.appendChild(createArticleBox(article))
+    })
+    articleWrapper.appendChild(fragmentElem)
+}
+async function getAllArticle(){
+   const res = await fetch(`${baseUrl}/articles`, {
+       method: "GET"
+   })
+    if (!res){
+        throw new Error("دسترسی به سرور با مشکل مواجه شد")
+    }
+    const data = await res.json()
+    return data
 }
 export {
     Toast,
@@ -308,5 +322,6 @@ export {
     errorOverlayShow,registerNewUser,
     hideLoadingOverlay,showErrorOverlay,hideErrorOverlay,getMe,login,showNameInNavbar,
     getDesktopTopBarMenu,renderDesktopTopBarMenu,getAllCourses,renderNewestCourses,
-    getPopularCourses,renderPopularCourse,getPrelessCourses,renderPresellCourse
+    getPopularCourses,renderPopularCourse,getPrelessCourses,renderPresellCourse,getAllArticle,
+    renderNewestArticles,
 }

@@ -58,6 +58,7 @@ let desktopTopBarMenu
 let allCourses;
 let popularCourses;
 let presellCourses
+let allArticles;
 const loginOrRegister = document.querySelector('#login-or-register')
 const userProfix = document.querySelector('#user-profix')
 
