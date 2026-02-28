@@ -59,6 +59,7 @@ let allCourses;
 let popularCourses;
 let presellCourses
 let allArticles;
+let allMenus;
 const loginOrRegister = document.querySelector('#login-or-register')
 const userProfix = document.querySelector('#user-profix')
 

@@ -10,7 +10,7 @@ import {
     hideLoadingOverlay,showErrorOverlay,hideErrorOverlay,getMe,showNameInNavbar,
     getDesktopTopBarMenu,renderDesktopTopBarMenu,getAllCourses,renderNewestCourses,
     getPopularCourses,renderPopularCourse,getPrelessCourses,renderPresellCourse,getAllArticle,
-    renderNewestArticles,
+    renderNewestArticles,getAllMenus,renderAllDesktopMenus,
 }
     from "./Funcs/auth.js";
 
@@ -40,14 +40,15 @@ async function initApp(){
     try{
         [
             user,desktopTopBarMenu,allCourses,popularCourses,presellCourses,
-            allArticles
+            allArticles,allMenus
         ] = await Promise.all([
             getMe(token),
             getDesktopTopBarMenu(),
             getAllCourses(),
             getPopularCourses(),
             getPrelessCourses(),
-            getAllArticle()
+            getAllArticle(),
+            getAllMenus()
         ])
         showNameInNavbar(user,token)
         renderDesktopTopBarMenu(desktopTopBarMenu)
@@ -56,6 +57,7 @@ async function initApp(){
         renderPresellCourse(presellCourses)
         initPresellSwiper()
         renderNewestArticles(allArticles)
+        renderAllDesktopMenus(allMenus)
     }
     catch (err){
         showErrorOverlay(err.message)

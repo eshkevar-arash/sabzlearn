@@ -136,7 +136,46 @@ function createArticleBox(article){
     `
     return newDiv
 }
+function createMenu(menu){
+    const newLi = document.createElement('li')
+    newLi.className = 'main-header__item'
+    if (menu.submenus.length === 0){
+        newLi.innerHTML = `
+            <a href="#" class="main-header__link">
+                <span class="main-header__link-text">${menu.title}</span>
+            </a>
+        `
+    }else {
+        newLi.innerHTML = `
+            <a href="#" class="main-header__link">
+                <span class="main-header__link-text">${menu.title}</span>
+                <i class="fas fa-angle-down main-header__angle-down"></i>
+            </a>
+            <div class="main-header__dropDown-parent">
+                <ul class="main-header__dropDown">
+                    ${menu.submenus.map(item => {
+            return `
+                            <li class="main-header__dropDown-item">
+                                <a href="#" class="main-header__dropDown-link">${item.title}</a>
+                            </li>
+                        `
+        }).join('')}
+                    <!--<li class="main-header__dropDown-item">
+                        <a href="#" class="main-header__dropDown-link">item</a>
+                    </li>
+                    <li class="main-header__dropDown-item">
+                        <a href="#" class="main-header__dropDown-link">item</a>
+                    </li>
+                    <li class="main-header__dropDown-item">
+                        <a href="#" class="main-header__dropDown-link">item</a>
+                    </li>-->
+                </ul>
+            </div>
+        `
+    }
+    return newLi
+}
 export {
     getRandomItems,createDesktopTopBarItem,createCourseBox,createCourseBoxPopular,
-    createArticleBox
+    createArticleBox,createMenu,
 }

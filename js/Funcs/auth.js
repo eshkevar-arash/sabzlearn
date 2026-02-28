@@ -1,6 +1,6 @@
 import {
     getRandomItems,createDesktopTopBarItem,createCourseBox,createCourseBoxPopular,
-    createArticleBox
+    createArticleBox,createMenu
 } from "./shared.js";
 
 
@@ -302,6 +302,16 @@ function renderNewestArticles(allArticles){
     })
     articleWrapper.appendChild(fragmentElem)
 }
+async function getAllMenus(){
+    const res = await fetch(`${baseUrl}/menus`,{
+        method: "GET"
+    })
+    if (!res.ok){
+        throw new Error('دسترسی به سرور با مشکل مواجه شد')
+    }
+    const data = await res.json()
+    return data
+}
 async function getAllArticle(){
    const res = await fetch(`${baseUrl}/articles`, {
        method: "GET"
@@ -312,6 +322,17 @@ async function getAllArticle(){
     const data = await res.json()
     return data
 }
+function renderAllDesktopMenus(allMenus){
+    console.log(allMenus)
+    const fragmentElem = document.createDocumentFragment()
+    const desktopMenus = document.querySelector('#desktop-menus')
+    desktopMenus.innerHTML = ''
+    allMenus.forEach(menu => {
+        fragmentElem.appendChild(createMenu(menu))
+    })
+    desktopMenus.appendChild(fragmentElem)
+}
+
 export {
     Toast,
     showErrorMessage,
@@ -323,5 +344,5 @@ export {
     hideLoadingOverlay,showErrorOverlay,hideErrorOverlay,getMe,login,showNameInNavbar,
     getDesktopTopBarMenu,renderDesktopTopBarMenu,getAllCourses,renderNewestCourses,
     getPopularCourses,renderPopularCourse,getPrelessCourses,renderPresellCourse,getAllArticle,
-    renderNewestArticles,
+    renderNewestArticles,getAllMenus,renderAllDesktopMenus,
 }
