@@ -1,6 +1,6 @@
 import {
     getRandomItems,createDesktopTopBarItem,createCourseBox,createCourseBoxPopular,
-    createArticleBox,createMenu
+    createArticleBox,createDesktopMenu,createMobileMenu
 } from "./shared.js";
 
 
@@ -323,16 +323,23 @@ async function getAllArticle(){
     return data
 }
 function renderAllDesktopMenus(allMenus){
-    console.log(allMenus)
     const fragmentElem = document.createDocumentFragment()
     const desktopMenus = document.querySelector('#desktop-menus')
     desktopMenus.innerHTML = ''
     allMenus.forEach(menu => {
-        fragmentElem.appendChild(createMenu(menu))
+        fragmentElem.appendChild(createDesktopMenu(menu))
     })
     desktopMenus.appendChild(fragmentElem)
 }
-
+function renderMobileMenus(allMenus){
+    const fragmentElem = document.createDocumentFragment()
+    const mobileMenus = document.querySelector('#mobile-menus')
+    mobileMenus.innerHTML = ''
+    allMenus.forEach(menu => {
+        fragmentElem.appendChild(createMobileMenu(menu))
+    })
+    mobileMenus.appendChild(fragmentElem)
+}
 export {
     Toast,
     showErrorMessage,
@@ -344,5 +351,5 @@ export {
     hideLoadingOverlay,showErrorOverlay,hideErrorOverlay,getMe,login,showNameInNavbar,
     getDesktopTopBarMenu,renderDesktopTopBarMenu,getAllCourses,renderNewestCourses,
     getPopularCourses,renderPopularCourse,getPrelessCourses,renderPresellCourse,getAllArticle,
-    renderNewestArticles,getAllMenus,renderAllDesktopMenus,
+    renderNewestArticles,getAllMenus,renderAllDesktopMenus,renderMobileMenus
 }

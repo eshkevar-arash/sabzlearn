@@ -136,7 +136,7 @@ function createArticleBox(article){
     `
     return newDiv
 }
-function createMenu(menu){
+function createDesktopMenu(menu){
     const newLi = document.createElement('li')
     newLi.className = 'main-header__item'
     if (menu.submenus.length === 0){
@@ -154,28 +154,48 @@ function createMenu(menu){
             <div class="main-header__dropDown-parent">
                 <ul class="main-header__dropDown">
                     ${menu.submenus.map(item => {
-            return `
-                            <li class="main-header__dropDown-item">
-                                <a href="#" class="main-header__dropDown-link">${item.title}</a>
-                            </li>
-                        `
-        }).join('')}
-                    <!--<li class="main-header__dropDown-item">
-                        <a href="#" class="main-header__dropDown-link">item</a>
-                    </li>
-                    <li class="main-header__dropDown-item">
-                        <a href="#" class="main-header__dropDown-link">item</a>
-                    </li>
-                    <li class="main-header__dropDown-item">
-                        <a href="#" class="main-header__dropDown-link">item</a>
-                    </li>-->
+                        return `
+                                        <li class="main-header__dropDown-item">
+                                            <a href="#" class="main-header__dropDown-link">${item.title}</a>
+                                        </li>
+                                    `
+                    }).join('')}
+                   
                 </ul>
             </div>
         `
     }
     return newLi
 }
+function createMobileMenu(menu){
+    const newLi = document.createElement('li')
+    newLi.className = 'mobile-category__menu-item'
+    if (menu.submenus.length === 0){
+        newLi.innerHTML = `
+            <div class="mobile-category__menu-item-header">
+                <a href="#" class="mobile-category__menu-link">${menu.title}</a>
+            </div>
+        `
+    }else {
+        newLi.innerHTML = `
+            <div class="mobile-category__menu-item-header">
+                <a href="#" class="mobile-category__menu-link">${menu.title}</a>
+                <i class="mobile-category__menu-icon fas fa-angle-left"></i>
+            </div>
+            <ul class="mobile-category__sub-menu">
+                ${menu.submenus.map(item => {
+                    return `
+                                <li class="mobile-category__sub-menu-item">
+                                    <a href="#" class="mobile-category__sub-menu-link">${item.title}</a>
+                                </li>
+                            `
+                }).join('')}
+            </ul>
+        `
+    }
+    return newLi
+}
 export {
     getRandomItems,createDesktopTopBarItem,createCourseBox,createCourseBoxPopular,
-    createArticleBox,createMenu,
+    createArticleBox,createDesktopMenu,createMobileMenu
 }

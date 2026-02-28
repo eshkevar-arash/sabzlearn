@@ -10,7 +10,7 @@ import {
     hideLoadingOverlay,showErrorOverlay,hideErrorOverlay,getMe,showNameInNavbar,
     getDesktopTopBarMenu,renderDesktopTopBarMenu,getAllCourses,renderNewestCourses,
     getPopularCourses,renderPopularCourse,getPrelessCourses,renderPresellCourse,getAllArticle,
-    renderNewestArticles,getAllMenus,renderAllDesktopMenus,
+    renderNewestArticles,getAllMenus,renderAllDesktopMenus,renderMobileMenus
 }
     from "./Funcs/auth.js";
 
@@ -58,6 +58,7 @@ async function initApp(){
         initPresellSwiper()
         renderNewestArticles(allArticles)
         renderAllDesktopMenus(allMenus)
+        renderMobileMenus(allMenus)
     }
     catch (err){
         showErrorOverlay(err.message)

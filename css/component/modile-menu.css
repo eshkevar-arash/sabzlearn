@@ -174,14 +174,15 @@
 .mobile-category__sub-menu-item{
     width: 100%;
     border-radius: 0.5rem;
-
+    height: 3.2rem;
+    line-height: 3.2rem;
 }
 .mobile-category__sub-menu-link{
     font-size: 1.2rem;
     transition: color 400ms ease;
 }
 .mobile-category__sub-menu-link:hover{
-    color: var(--primary-color);
+    color: #1e83f0;
 }
 
 
@@ -190,10 +191,10 @@
 
 
 .mobile-category__menu-item--open .mobile-category__menu-link{
-    color: var(--primary-color);
+    color: #1e83f0;
 }
 .mobile-category__menu-item--open .mobile-category__menu-icon{
-    color: var(--primary-color);
+    color: #1e83f0;
     transform: rotate(-90deg);
 }
 .mobile-category__menu-item--open .mobile-category__sub-menu{
